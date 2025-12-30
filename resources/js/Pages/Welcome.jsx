@@ -10,7 +10,7 @@ import {
     Sparkles,
 } from "lucide-react";
 import { Head, Link } from "@inertiajs/react";
-import { DivisiCarousel } from "@/components/Divisi";
+import { DivisiCarousel } from "@/Components/Divisi";
 import LeadersCarousel from "@/Components/Leader";
 import ContactBemFik from "@/Components/ContactBemFik";
 
