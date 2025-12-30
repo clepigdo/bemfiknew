@@ -1,0 +1,631 @@
+import React from "react";
+import { Head } from "@inertiajs/react";
+import Navbar from "../Components/Navbar";
+import {
+    ArrowRight,
+    CheckCircle2,
+    GraduationCap,
+    Microscope,
+    HeartHandshake,
+    Sparkles,
+    Zap,
+    Instagram,
+    Linkedin,
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function P3Page() {
+    const leaders = [
+        {
+            name: "Nama Lengkap",
+            role: "Kepala Divisi",
+            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Nama Lengkap",
+            role: "Sekretaris",
+            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
+    const staffMembers = [
+        {
+            name: "Staff 1",
+            role: "Staff Ahli",
+            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 2",
+            role: "Staff Ahli",
+            image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 3",
+            role: "Staff Ahli",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 4",
+            role: "Staff Ahli",
+            image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 5",
+            role: "Staff Muda",
+            image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 6",
+            role: "Staff Muda",
+            image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 7",
+            role: "Staff Muda",
+            image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 8",
+            role: "Staff Muda",
+            image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 9",
+            role: "Staff Magang",
+            image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Staff 10",
+            role: "Staff Magang",
+            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
+    const focusPoints = [
+        {
+            title: "Pendidikan",
+            subtitle: "Academic Excellence",
+            desc: "Menciptakan ruang belajar inklusif untuk mengasah hard-skill & soft-skill mahasiswa.",
+            icon: GraduationCap,
+            gradient: "from-blue-500 to-cyan-400",
+            lightBg: "bg-blue-50",
+        },
+        {
+            title: "Penelitian",
+            subtitle: "Research & Innovation",
+            desc: "Mewadahi gagasan kritis mahasiswa menjadi inovasi riset yang solutif.",
+            icon: Microscope,
+            gradient: "from-purple-500 to-pink-400",
+            lightBg: "bg-purple-50",
+        },
+        {
+            title: "Pengabdian",
+            subtitle: "Social Impact",
+            desc: "Hilirisasi ilmu pengetahuan agar berdampak langsung bagi masyarakat luas.",
+            icon: HeartHandshake,
+            gradient: "from-emerald-500 to-teal-400",
+            lightBg: "bg-emerald-50",
+        },
+    ];
+
+    const prokerList = [
+        {
+            title: "FIK BOOST",
+            desc: "Inisiatif strategis untuk meningkatkan kapasitas dan kompetensi anggota ormawa melalui pelatihan terspesialisasi dan penguatan jejaring kolaboratif.",
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop",
+            points: [
+                "Peningkatan Kompetensi",
+                "Standardisasi Acara",
+                "Kaderisasi Pemimpin",
+            ],
+            tag: "Capacity Building",
+            gradient: "from-blue-600 to-cyan-600",
+        },
+        {
+            title: "PRISMA",
+            desc: "Program Riset dan Analisis Mahasiswa yang mengkaji isu-isu sosial, kesehatan, dan politik untuk menghasilkan literatur ilmiah yang kredibel.",
+            image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop",
+            points: [
+                "Kajian Isu Terkini",
+                "Publikasi Artikel",
+                "2-3x Kajian/Bulan",
+            ],
+            tag: "Research & Analysis",
+            gradient: "from-purple-600 to-pink-600",
+        },
+        {
+            title: "FIKTION",
+            desc: "Gerakan sosial pendidikan bagi anak-anak marjinal di Semarang, memberikan bimbingan belajar dan akses pendidikan layak.",
+            image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop",
+            points: [
+                "Social Charity",
+                "Bimbingan Belajar",
+                "Kolaborasi Relawan",
+            ],
+            tag: "Community Service",
+            gradient: "from-orange-500 to-red-500",
+        },
+        {
+            title: "PKM Center",
+            desc: "Pendampingan intensif bagi mahasiswa dalam menyusun proposal Program Kreativitas Mahasiswa (PKM) untuk kompetisi nasional.",
+            image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
+            points: [
+                "Target 3 Proposal",
+                "Pengembangan Inovasi",
+                "Kompetisi Nasional",
+            ],
+            tag: "Academic Competition",
+            gradient: "from-emerald-600 to-green-600",
+        },
+        {
+            title: "PPK Ormawa",
+            desc: "Program penguatan kapasitas organisasi kemahasiswaan melalui pengabdian dan pemberdayaan masyarakat desa binaan.",
+            image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1000&auto=format&fit=crop",
+            points: [
+                "Pemberdayaan Desa",
+                "Pengabdian Masyarakat",
+                "Target 1 Proposal",
+            ],
+            tag: "Village Empowerment",
+            gradient: "from-indigo-600 to-violet-600",
+        },
+    ];
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
+            <Head title="Profil P3 - BEM FIK" />
+            <Navbar />
+
+            <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+                <div
+                    className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
+                    style={{ animationDelay: "1s" }}
+                ></div>
+            </div>
+            <main className="relative w-full">
+                <div className="relative w-full mb-20 overflow-hidden">
+                    {/* Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 blur-2xl opacity-20 animate-pulse"></div>
+
+                    {/* --- HERO BACKGROUND --- */}
+                    <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden shadow-2xl min-h-screen flex items-center">
+                        <div className="absolute inset-0 opacity-30">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-transparent to-purple-500/20"></div>
+                        </div>
+
+                        {/* --- KONTEN TENGAH --- */}
+                        <div className="container mx-auto px-6 md:px-12 relative z-10 py-24 md:py-32 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                            {/* 1. BAGIAN KIRI (TEKS) - Slide dari Kiri ke Kanan */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -100 }} // Awal: Transparan & Geser ke Kiri 100px
+                                whileInView={{ opacity: 1, x: 0 }} // Masuk: Muncul & Balik ke posisi 0
+                                transition={{ duration: 0.8, ease: "easeOut" }} // Durasi animasi
+                                viewport={{ once: true }} // Animasi cuma jalan sekali (biar ga pusing kalau scroll naik turun)
+                                className="md:w-1/2 flex flex-col items-start"
+                            >
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-8">
+                                    <Sparkles
+                                        size={16}
+                                        className="text-yellow-300"
+                                    />
+                                    <span className="text-white/90 text-sm font-semibold">
+                                        Divisi Pendidikan, Penelitian, dan
+                                        Pengabdian
+                                    </span>
+                                </div>
+
+                                <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+                                    Mengabdi Lewat
+                                    <br />
+                                    <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                                        Inovasi & Edukasi
+                                    </span>
+                                </h1>
+
+                                <p className="text-blue-100 text-xl max-w-xl leading-relaxed mb-10">
+                                    Divisi Pendidikan, Penelitian dan Pengabdian
+                                    (P3) bertanggung jawab penuh dalam mewadahi
+                                    segala kebutuhan meliputi kegiatan
+                                    pendidikan, observasi dan pengabdian yang
+                                    bertujuan untuk mengasah skill mahasiswa
+                                    untuk terjun mengimplementasikan kepada
+                                    masyarakat sehingga terciptalah karakter
+                                    mahasiswa yang cerdas, berjiwa sosial tinggi
+                                    dan berjiwa ilmiah.
+                                </p>
+
+                                <button className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                                    Jelajahi Program
+                                    <ArrowRight
+                                        className="group-hover:translate-x-1 transition-transform"
+                                        size={20}
+                                    />
+                                </button>
+                            </motion.div>
+
+                            {/* 2. BAGIAN KANAN (GAMBAR) - Slide dari Kanan ke Kiri */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 100 }} // Awal: Transparan & Geser ke Kanan 100px
+                                whileInView={{ opacity: 1, x: 0 }} // Masuk: Muncul & Balik ke posisi 0
+                                transition={{
+                                    duration: 0.8,
+                                    ease: "easeOut",
+                                    delay: 0.2,
+                                }} // Delay dikit biar gantian sama teks
+                                viewport={{ once: true }}
+                                className="md:w-1/2 flex justify-center relative"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[3rem] blur-3xl opacity-40 animate-pulse -rotate-6 transform scale-105"></div>
+                                <img
+                                    src="/images/division/p3k.jpg"
+                                    alt="Tim P3"
+                                    className="relative w-80 max-w-lg rounded-[3rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 z-10 object-cover"
+                                />
+                            </motion.div>
+                        </div>
+
+                        {/* Decorative Circles */}
+                        <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"></div>
+                    </div>
+                </div>
+
+                {/* --- KONTEN BAWAH (CONTAINER) --- */}
+                <div className="container mx-auto px-6 md:px-12 relative z-10">
+                    <div className="container mx-auto px-6 md:px-12 py-24">
+                        <div className="relative text-center mb-20 group">
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-blue-400/20 rounded-full blur-[80px] -z-10 group-hover:bg-purple-400/20 transition-colors duration-700"></div>
+
+                            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-blue-100 shadow-sm mb-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default">
+                                <span className="relative flex h-3 w-3">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                </span>
+                                <span className="text-blue-600 font-bold tracking-widest text-xs uppercase">
+                                    Meet Our Squad
+                                </span>
+                            </div>
+
+                            {/* Judul Besar dengan Gradasi & Dekorasi SVG */}
+                            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
+                                P3 Kabinet{" "}
+                                <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                                    Sacakarsa
+                                    {/* Garis Lengkung di bawah teks */}
+                                    <svg
+                                        className="absolute w-full h-3 -bottom-2 left-0 text-blue-400 opacity-60"
+                                        viewBox="0 0 100 10"
+                                        preserveAspectRatio="none"
+                                    >
+                                        <path
+                                            d="M0 5 Q 50 10 100 5"
+                                            stroke="currentColor"
+                                            strokeWidth="3"
+                                            fill="none"
+                                        />
+                                    </svg>
+                                </span>
+                            </h2>
+
+                            {/* Deskripsi */}
+                            <p className="text-slate-600 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
+                                Dipimpin oleh individu berkompeten dan didukung
+                                oleh tim yang solid untuk menciptakan{" "}
+                                <span className="font-bold text-slate-800">
+                                    Inovasi
+                                </span>{" "}
+                                dan{" "}
+                                <span className="font-bold text-slate-800">
+                                    Dampak Nyata
+                                </span>
+                                .
+                            </p>
+
+                            {/* Divider yang Memanjang saat Hover */}
+                            <div className="mt-8 flex justify-center">
+                                <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-48 transition-all duration-700 ease-out shadow-lg shadow-blue-500/30"></div>
+                            </div>
+                        </div>
+
+                        {/* --- BAGIAN 1: LEADERS (KEPALA & SEKRETARIS) --- */}
+                        <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
+                            {leaders.map((member, index) => (
+                                <div
+                                    key={index}
+                                    className="group relative h-[420px] w-full md:w-[320px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:-translate-y-3 ring-4 ring-white border-2 border-blue-100"
+                                >
+                                    <div className="absolute top-4 right-4 z-20 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">
+                                        CORE LEADER
+                                    </div>
+
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+
+                                    <div className="absolute inset-0 flex flex-col justify-end p-8 text-center">
+                                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                            <h3 className="text-2xl font-bold text-white mb-1">
+                                                {member.name}
+                                            </h3>
+                                            <p className="text-yellow-300 font-bold text-sm tracking-widest uppercase mb-4">
+                                                {member.role}
+                                            </p>
+
+                                            <div className="flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                                <a
+                                                    href={member.instagram}
+                                                    className="p-2 bg-white/20 hover:bg-white hover:text-pink-600 rounded-full text-white transition-colors"
+                                                >
+                                                    <Instagram size={20} />
+                                                </a>
+                                                <a
+                                                    href={member.linkedin}
+                                                    className="p-2 bg-white/20 hover:bg-white hover:text-blue-700 rounded-full text-white transition-colors"
+                                                >
+                                                    <Linkedin size={20} />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* --- BAGIAN 2: STAFF MEMBERS --- */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {staffMembers.map((member, index) => {
+                                const centerClass =
+                                    index === 8 ? "lg:col-start-2" : "";
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`group relative h-[350px] w-full ${centerClass} rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                                    >
+                                        <img
+                                            src={member.image}
+                                            alt={member.name}
+                                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
+
+                                        {/* Konten Teks */}
+                                        <div className="absolute inset-0 flex flex-col justify-end p-6">
+                                            <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                                                <h3 className="text-lg font-bold text-white mb-0.5 leading-tight">
+                                                    {member.name}
+                                                </h3>
+                                                <p className="text-slate-300 font-medium text-xs tracking-wide uppercase mb-3">
+                                                    {member.role}
+                                                </p>
+                                                <div className="w-10 h-0.5 bg-blue-500 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                                <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                                                    <a
+                                                        href={member.instagram}
+                                                        className="text-white hover:text-pink-400 transition-colors"
+                                                    >
+                                                        <Instagram size={16} />
+                                                    </a>
+                                                    <a
+                                                        href={member.linkedin}
+                                                        className="text-white hover:text-blue-400 transition-colors"
+                                                    >
+                                                        <Linkedin size={16} />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    {/* --- PROGRAM UNGGULAN --- */}
+                    <div className="mb-24">
+                        <div className="text-center mb-20">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 mb-4">
+                                <Sparkles
+                                    size={16}
+                                    className="text-purple-600"
+                                />
+                                <span className="text-purple-900 text-sm font-bold">
+                                    FEATURED PROGRAMS
+                                </span>
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-black text-slate-900">
+                                Program Kerja
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-24">
+                            {prokerList.map((item, index) => {
+                                // Cek apakah urutan genap atau ganjil
+                                // Jika ganjil (index 1, 3, dst), kita balik posisinya (Teks Kiri, Gambar Kanan)
+                                const isEven = index % 2 === 0;
+
+                                return (
+                                    <div
+                                        key={index}
+                                        // LOGIKA ZIG-ZAG ADA DI SINI:
+                                        // 'flex-col': Mobile selalu atas-bawah.
+                                        // 'md:flex-row': Desktop normal (Gambar Kiri).
+                                        // 'md:flex-row-reverse': Desktop terbalik (Gambar Kanan).
+                                        className={`flex flex-col ${
+                                            isEven
+                                                ? "md:flex-row"
+                                                : "md:flex-row-reverse"
+                                        } items-center gap-10 md:gap-16`}
+                                    >
+                                        {/* --- BAGIAN GAMBAR --- */}
+                                        <div className="w-full md:w-1/2 relative group">
+                                            {/* Background Blur Effect sesuai warna proker */}
+                                            <div
+                                                className={`absolute inset-0 bg-gradient-to-r ${item.gradient} blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full`}
+                                            ></div>
+
+                                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-1">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    className="w-full h-[300px] md:h-[400px] object-cover"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+                                                {/* Tag Kategori Nempel di Gambar */}
+                                                <div className="absolute top-6 left-6">
+                                                    <span
+                                                        className={`px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold shadow-lg uppercase tracking-wider text-slate-900`}
+                                                    >
+                                                        {item.tag}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* --- BAGIAN TEKS --- */}
+                                        <div className="w-full md:w-1/2">
+                                            <div className="flex items-center gap-4 mb-4">
+                                                {/* Nomor Urut Besar */}
+                                                <span
+                                                    className={`text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br ${item.gradient} opacity-20`}
+                                                >
+                                                    0{index + 1}
+                                                </span>
+                                                <div
+                                                    className={`h-px flex-1 bg-gradient-to-r ${item.gradient} opacity-30`}
+                                                ></div>
+                                            </div>
+
+                                            <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
+                                                {item.title}
+                                            </h3>
+
+                                            <p className="text-slate-600 text-lg leading-relaxed mb-8 text-justify">
+                                                {item.desc}
+                                            </p>
+
+                                            {/* Poin-poin */}
+                                            <div className="space-y-4">
+                                                {item.points.map(
+                                                    (point, idx) => (
+                                                        <div
+                                                            key={idx}
+                                                            className="flex items-center gap-4 p-3 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
+                                                        >
+                                                            <div
+                                                                className={`w-8 h-8 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 text-white`}
+                                                            >
+                                                                <CheckCircle2
+                                                                    size={16}
+                                                                />
+                                                            </div>
+                                                            <span className="text-slate-700 font-semibold text-sm md:text-base">
+                                                                {point}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* CTA Section */}
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-[3rem] blur-2xl opacity-30"></div>
+
+                        <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 rounded-[3rem] overflow-hidden shadow-2xl">
+                            <div className="absolute inset-0 opacity-10">
+                                <div
+                                    className="absolute inset-0"
+                                    style={{
+                                        backgroundImage:
+                                            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                                        backgroundSize: "50px 50px",
+                                    }}
+                                ></div>
+                            </div>
+
+                            <div className="relative z-10 p-12 md:p-20 text-center">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-6">
+                                    <Zap
+                                        size={16}
+                                        className="text-yellow-300"
+                                    />
+                                    <span className="text-white/90 text-sm font-bold">
+                                        JOIN US NOW
+                                    </span>
+                                </div>
+
+                                <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
+                                    Siap Berkolaborasi?
+                                </h2>
+
+                                <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                                    Mari wujudkan ide-ide brilian bersama Divisi
+                                    P3 BEM FIK UDINUS dan ciptakan dampak nyata
+                                    untuk mahasiswa.
+                                </p>
+
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                                        Hubungi Kami
+                                        <ArrowRight
+                                            className="group-hover:translate-x-1 transition-transform"
+                                            size={20}
+                                        />
+                                    </button>
+
+                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
+                                        Lihat Portfolio
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="absolute -left-20 -top-20 w-80 h-80 bg-gradient-to-br from-blue-500/30 to-transparent rounded-full blur-3xl"></div>
+                            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-gradient-to-br from-purple-500/30 to-transparent rounded-full blur-3xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            {/* Footer */}
+            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+                <div className="relative">
+                    <p className="text-slate-400 font-medium">
+                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    );
+}

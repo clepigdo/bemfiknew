@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@inertiajs/react";
 import {
     Carousel,
     CarouselContent,
@@ -16,38 +17,43 @@ export function DivisiCarousel() {
             code: "P3",
             title: "Pendidikan, Penelitian, dan Pengabdian",
             image: "/images/periode/Sacakarsa/P3.png",
+            url: "/pages/profil-p3"
         },
         {
             id: 2,
             code: "EKOKRAF",
             title: "Ekonomi Kreatif",
             image: "/images/periode/Sacakarsa/Ekokraf.png",
+            url: "/pages/profil-ekokraf"
         },
         {
             id: 3,
             code: "PR",
             title: "Public Relations",
             image: "/images/periode/Sacakarsa/PR.png",
+            url: "/pages/profil-pr"
         },
         {
             id: 4,
             code: "PSDM",
             title: "Pengembangan Sumber Daya Mahasiswa",
             image: "/images/periode/Sacakarsa/PSDM.png",
+            url: "/pages/profil-psdm"
         },
         {
             id: 5,
             code: "MEDKREF",
             title: "Media Kreatif",
             image: "/images/periode/Sacakarsa/Medkref.png",
+            url: "/pages/profil-medkref"
         },
         {
             id: 6,
             code: "MIKAT",
             title: "Minat dan Bakat",
             image: "/images/periode/Sacakarsa/Mikat.png",
+            url: "/pages/profil-mikat"
         },
-
     ];
 
     return (
@@ -66,31 +72,35 @@ export function DivisiCarousel() {
                             className="pl-4 md:basis-1/2 lg:basis-1/3"
                         >
                             <div className="p-1 h-full">
-                                <Card className="border-none shadow-xl rounded-[2rem] overflow-hidden bg-white h-full flex flex-col">
-                                    <CardContent className="flex flex-col items-center p-6">
-                                        <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-sm">
-                                            <img
-                                                src={item.image}
-                                                alt={item.title}
-                                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                                            />
-                                        </div>
+                                <Link
+                                    href={item.url}
+                                    className="block h-full"
+                                >
+                                    <Card className="border-none shadow-xl rounded-[2rem] overflow-hidden bg-white h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow duration-300">
+                                        <CardContent className="flex flex-col items-center p-6">
+                                            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-sm">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
 
-                                        <div className="text-center space-y-1">
-                                            <h3 className="text-xl font-bold text-blue-900 uppercase tracking-wide">
-                                                {item.code}
-                                            </h3>
-                                            <p className="text-gray-800 font-semibold text-lg leading-tight px-4">
-                                                {item.title}
-                                            </p>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                            <div className="text-center space-y-1">
+                                                <h3 className="text-xl font-bold text-blue-900 uppercase tracking-wide">
+                                                    {item.code}
+                                                </h3>
+                                                <p className="text-gray-800 font-semibold text-lg leading-tight px-4">
+                                                    {item.title}
+                                                </p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-
                 <CarouselPrevious className="h-14 w-14 bg-white hover:bg-gray-50 text-blue-900 border-none shadow-lg -left-16" />
                 <CarouselNext className="h-14 w-14 bg-white hover:bg-gray-50 text-blue-900 border-none shadow-lg -right-16" />
             </Carousel>

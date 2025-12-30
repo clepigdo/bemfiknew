@@ -25,3 +25,31 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/pages/profil-p3', function () {
+    return Inertia::render('P3Page'); 
+})->name('p3');
+
+Route::get('/pages/profil-ekokraf', function () {
+    return Inertia::render('EkokrafPage'); 
+})->name('ekokraf');
+
+Route::get('/pages/profil-pr', function () {
+    return Inertia::render('PrPage'); 
+})->name('pr');
+
+Route::get('/pages/profil-psdm', function () {
+    return Inertia::render('PsdmPage'); 
+})->name('psdm');
+
+Route::get('/pages/profil-medkref', function () {
+    return Inertia::render('MedkrefPage'); 
+})->name('medkref');
+
+Route::get('/pages/profil-mikat', function () {
+    return Inertia::render('MikatPage'); 
+})->name('mikat');
+
+
+
