@@ -45,9 +45,12 @@ export function LampDemo() {
                     </div>
 
                     <p className="text-slate-600 leading-relaxed text-lg">
-                        "Menjadikan BEM FIK UDINUS sebagai lembaga eksekutif
-                        yang responsif, inovatif, dan bersinergi dalam
-                        mewujudkan mahasiswa yang unggul dan berintegritas."
+                        "Mewujudkan BEM FIK sebagai organisasi mahasiswa
+                        proaktif dan kolaboratif yang berdampak positif dalam
+                        mendukung pengembangan diri mahasiswa Fakultas Ilmu
+                        Komputer dan pengabdian masyarakat berlandaskan
+                        sinergitas dengan mengedepankan loyalitas,
+                        profesionalitas kerja dan tanggung jawab."
                     </p>
                 </div>
 
@@ -67,9 +70,17 @@ export function LampDemo() {
                     </div>
 
                     <ul className="space-y-4 text-slate-600">
-                        <ListItem text="Membangun internal organisasi yang solid dan profesional." />
-                        <ListItem text="Mewadahi aspirasi dan kreativitas mahasiswa FIK." />
-                        <ListItem text="Menjalin hubungan harmonis dengan civitas akademika." />
+                        <ListItem text="Membangun BEM FIK berdasarkan ketuhanan, kekeluargaan dan keharmonisan." />
+                        <ListItem text="Meningkatkan peran aktif Sumber Daya Manusia Internal Organisasi yang inovatif dan komunikatif melalui diskusi terbuka dan evaluasi serta pengawasan terhadap akademik dan non akademik SDM Internal." />
+                        <ListItem text="Menjalin hubungan baik dengan seluruh civitas akademika dan aktivis organisasi mahasiswa di tingkat universitas dan fakultas serta lembaga eksternal terkait untuk mendukung keberhasilan program kerja organisasi." />
+                        <ListItem
+                            text="Mengoptimalkan fungsi media digital sebagai sarana komunikasi untuk memperluas jaringan organisasi dan penyebaran informasi yang kredibel bagi seluruh mahasiswa Fakultas Ilmu Komputer. 
+"
+                        />
+                        <ListItem
+                            text="Menjadi fasilitator bagi mahasiswa Fakultas Ilmu Komputer dalam mengembangkan kreativitas, minat dan bakat baik di dalam maupun di luar lingkup universitas.
+"
+                        />
                     </ul>
                 </div>
             </motion.div>
@@ -87,17 +98,13 @@ const ListItem = ({ text }) => (
 // --- LAMP CONTAINER (DIPERBAIKI TOTAL UNTUK LIGHT MODE) ---
 export const LampContainer = ({ children, className }) => {
     return (
-        
         <div
             className={cn(
-                // PERBAIKAN 1: Tambah padding-top (pt-40) agar ada ruang untuk cahaya di atas
-                "relative flex min-h-screen flex-col items-center justify-start overflow-hidden bg-white w-full  z-0 pt-40",
-                className
+                "relative flex min-h-screen flex-col items-center justify-start bg-white w-full z-0 pt-40",
+                className,
             )}
-            
         >
-            {/* Container Cahaya - PERBAIKAN 2: Posisi top disesuaikan (-top-20) agar sorotan terlihat turun */}
-            <div className="absolute -top-20 left-0 flex w-full h-[600px] items-center justify-center isolate z-0 pointer-events-none">
+            <div className="absolute -top-20 left-0 flex w-full h-[600px] items-center justify-center isolate z-0 pointer-events-none ">
                 {/* Lampu Kanan - Warna diganti jadi CYAN-600 (Lebih Gelap) */}
                 <motion.div
                     initial={{ opacity: 0.5, width: "15rem" }}

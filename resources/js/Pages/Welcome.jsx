@@ -17,7 +17,9 @@ import { DivisiCarousel } from "@/Components/Divisi";
 import LeadersCarousel from "@/Components/Leader";
 import ContactBemFik from "@/Components/ContactBemFik";
 import { ParallaxSeparator } from "@/Components/ParallaxSeparator";
-import { LampDemo } from "@/Components/ui/lamp"
+import { LampDemo } from "@/Components/ui/lamp";
+import { VideoProfileSection } from "@/Components/VideoProfileSection";
+import Footer from "@/Components/Footer";
 
 export default function Welcome() {
     const [scrolled, setScrolled] = useState(false);
@@ -73,25 +75,25 @@ export default function Welcome() {
             title: "LKMM-TD",
             subtitle: "Latihan Keterampilan Manajemen Mahasiswa Tingkat Dasar",
             desc: "Program rutin tahunan untuk memberikan pengetahuan manajerial organisasi ke mahasiswa baru.",
-            img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1000&auto=format&fit=crop",
+            img: "/images/prokerrkt/lkm.png",
         },
         {
             title: "FIX CUP",
             subtitle: "Fakultas Ilmu Komputer Competition",
             desc: "Ajang kompetisi olahraga dan seni tahunan yang mempertemukan bakat-bakat terbaik mahasiswa FIK.",
-            img: "https://images.unsplash.com/photo-1579952363873-27f3bde9be51?q=80&w=1000&auto=format&fit=crop",
+            img: "/images/prokerrkt/fixcup.png",
         },
         {
             title: "PCP FIK",
             subtitle: "Pembekalan Calon Pengurus",
             desc: "Kegiatan untuk mencetak kader pengurus BEM yang berkualitas dan berintegritas tinggi.",
-            img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
+            img: "/images/prokerrkt/pcp.png",
         },
     ];
 
     return (
-        <div className="font-poppins text-white relative bg-[#050A1F]">
-            <Head title="Home - BEM FIK UDINUS" />
+        <div className="font-poppins text-white relative bg-[#050A1F] w-full overflow-x-hidden">
+            <Head title="Beranda - BEM FIK UDINUS" />
 
             {/* --- NAVBAR --- */}
             <nav
@@ -120,37 +122,43 @@ export default function Welcome() {
                             href="/"
                             className="hover:text-blue-300 transition-colors"
                         >
-                            Home
+                            Beranda
                         </Link>
                         <Link
-                            href="/tentang"
+                            href="/#tentang"
                             className="hover:text-blue-300 transition-colors"
                         >
                             Tentang
                         </Link>
                         <Link
-                            href="#"
+                            href="/#periode"
                             className="hover:text-blue-300 transition-colors"
                         >
                             Periode
                         </Link>
                         <Link
-                            href="#"
+                            href="/#divisi"
                             className="hover:text-blue-300 transition-colors"
                         >
                             Divisi
                         </Link>
                         <Link
-                            href="#"
+                            href="/#event"
                             className="hover:text-blue-300 transition-colors"
                         >
                             Event
                         </Link>
                         <Link
-                            href="#"
+                            href="/#kontak"
                             className="hover:text-blue-300 transition-colors"
                         >
                             Kontak
+                        </Link>
+                        <Link
+                            href="/artikel"
+                            className="hover:text-blue-300 transition-colors"
+                        >
+                            Artikel
                         </Link>
                     </div>
 
@@ -244,26 +252,22 @@ export default function Welcome() {
             </div>
             {/* --- HERO SECTION END --- */}
 
-            <div className="relative z-30 overflow-hidden pointer-events-none">
-                <div className="absolute -top-10 left-0 w-[110%] -translate-x-[5%] rotate-[-2deg] bg-[#FBDF07] text-[#050A1F] py-3 border-y-4 border-black shadow-xl transform scale-110 origin-left">
-                    <div className="flex animate-marquee whitespace-nowrap font-black text-xl md:text-2xl uppercase tracking-widest gap-8">
-                        {[...Array(15)].map((_, i) => (
-                            <span key={i} className="flex items-center gap-8">
-                                INNOVATION{" "}
-                                <span className="text-blue-600">★</span>
-                                COLLABORATION{" "}
-                                <span className="text-blue-600">★</span>
-                                INTEGRITY{" "}
-                                <span className="text-blue-600">★</span>
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
             {/* --- ABOUT SECTION START --- */}
-            <section className="relative z-20 py-24 bg-white -mt-16 rounded-t-[3rem] shadow-[0_-20px_60px_rgba(0,0,0,0.5)]">
-                <div className="container mx-auto px-6 md:px-40">
+            <section
+                // 1. Tambahkan 'overflow-hidden' agar overlay tidak bocor keluar
+                // 2. Class lainnya biarkan sama
+                className="relative z-20 py-24 bg-white -mt-16 rounded-t-[3rem] shadow-[0_-20px_60px_rgba(0,0,0,0.5)] overflow-hidden"
+                style={{
+                    backgroundImage: "url('/images/pattern.png')",
+                    backgroundSize: "cover", // Pastikan pattern memenuhi area
+                    backgroundPosition: "center",
+                }}
+            >
+                <div className="absolute inset-0 bg-white/85 z-0"></div>
+
+                {/* === CONTAINER KONTEN === */}
+                {/* Tambahkan 'relative z-10' agar teks muncul DI ATAS lapisan overlay */}
+                <div id="tentang" className="container mx-auto px-6 md:px-40 relative z-10">
                     <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
                         <div className="w-full md:w-5/12 flex justify-center md:justify-end">
                             <div className="relative group animate-float">
@@ -277,7 +281,7 @@ export default function Welcome() {
                         </div>
                         <div className="w-full md:w-7/12 text-left">
                             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6 uppercase tracking-wider">
-                                About BEM FIK
+                                Tentang BEM FIK
                             </h2>
 
                             <div className="text-gray-700 text-lg leading-relaxed space-y-4 font-light text-justify">
@@ -301,17 +305,19 @@ export default function Welcome() {
             </section>
             {/* --- ABOUT SECTION END --- */}
 
-            <LampDemo/>
+            <div className="">
+                <LampDemo />
+            </div>
 
             {/* --- LEADERS SECTION --- */}
-            <div className="bg-white pb-20 pt-10 relative z-20">
+            <div id="periode" className="bg-white pb-20 pt-10 relative z-20">
                 <div className="container mx-auto">
                     <LeadersCarousel />
                 </div>
             </div>
 
             {/* --- DIVISION SECTION START  --- */}
-            <section className="py-32 bg-[#050A1F] relative overflow-hidden -mt-10 rounded-t-[3rem] z-30 shadow-[0_-20px_60px_rgba(0,0,0,0.5)] ">
+            <section id="divisi" className="py-32 bg-[#050A1F] relative overflow-hidden -mt-10 rounded-t-[3rem] z-30 shadow-[0_-20px_60px_rgba(0,0,0,0.5)] ">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#323EDD]/20 rounded-full blur-[100px] animate-pulse"></div>
                     <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#EE99C2]/10 rounded-full blur-[100px]"></div>
@@ -373,8 +379,9 @@ export default function Welcome() {
             {/* --- DIVISION SECTION END --- */}
             <ParallaxSeparator />
             {/* --- PROGRAM KERJA SECTION START --- */}
-            <section className="pb-24 pt-24 bg-slate-50 relative">
-                <div className="container mx-auto px-6 md:px-12">
+            <section id="event" className="pb-24 pt-24 bg-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                <div className="container mx-auto px-6 md:px-12 z-10">
                     {/* Header Section */}
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 pb-8">
                         <div>
@@ -402,43 +409,55 @@ export default function Welcome() {
                                     0{index + 1}
                                 </div>
 
-                                {/* CARD CONTENT */}
-                                <div className="relative z-10 bg-white rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 border border-gray-100 flex flex-col h-full">
-                                    <div className="flex-grow">
-                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100">
-                                            <img
-                                                src={item.img}
-                                                alt={item.title}
-                                                onError={(e) => {
-                                                    e.target.src =
-                                                        "https://via.placeholder.com/400x300?text=No+Image";
-                                                    e.target.style.opacity =
-                                                        "0.3";
-                                                }}
-                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                            />
-                                            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold text-blue-900 shadow-lg">
-                                                Tahunan
-                                            </div>
-                                        </div>
+                                {/* CARD CONTENT - BERSIH TANPA EFEK BIRU SAAT HOVER */}
+                                <div className="group relative flex flex-col h-full bg-white rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100">
+                                    {/* --- ZONA GAMBAR --- */}
+                                    <div className="relative w-full aspect-[3/4] overflow-hidden">
+                                        {/* SAYA HAPUS DIV OVERLAY GRADIENT DISINI AGAR GAMBAR TETAP JERNIH */}
 
-                                        <div className="px-2 pb-4">
-                                            <h3 className="text-2xl font-extrabold text-blue-950 mb-1 group-hover:text-blue-600 transition-colors">
-                                                {item.title}
-                                            </h3>
-                                            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 min-h-[1.5rem] flex items-center">
-                                                {item.subtitle}
-                                            </p>
-                                            <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                                                {item.desc}
-                                            </p>
+                                        <img
+                                            src={item.img}
+                                            alt={item.title}
+                                            onError={(e) => {
+                                                e.target.src =
+                                                    "https://via.placeholder.com/400x600?text=No+Image";
+                                            }}
+                                            className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+                                        />
+
+                                        {/* Badge Tahunan */}
+                                        <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2 text-xs font-bold text-blue-900 shadow-sm border border-white/50">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                                            Tahunan
                                         </div>
                                     </div>
-                                    <div className="px-2 pb-2 pt-4 mt-auto border-t border-gray-100">
-                                        <button className="flex items-center gap-2 text-blue-600 font-bold text-sm group-hover:gap-4 transition-all">
-                                            Detail Kegiatan{" "}
-                                            <ArrowRight className="w-4 h-4" />
-                                        </button>
+
+                                    {/* --- ZONA KONTEN --- */}
+                                    <div className="flex flex-col flex-grow px-6 pt-6 pb-6 relative bg-white">
+                                        <div className="mb-4">
+                                            <h3 className="text-2xl font-black text-blue-950 leading-tight mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-700 group-hover:to-purple-600 transition-all duration-300">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-xs font-bold text-blue-500/80 uppercase tracking-wider flex items-center gap-2">
+                                                <span className="w-4 h-0.5 bg-blue-300 rounded-full"></span>
+                                                {item.subtitle}
+                                            </p>
+                                        </div>
+
+                                        <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                                            {item.desc}
+                                        </p>
+
+                                        <div className="mt-auto pt-2">
+                                            <button className="w-full py-3 px-4 rounded-2xl bg-slate-50 text-blue-700 font-bold text-sm flex items-center justify-between group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 overflow-hidden relative border border-blue-100">
+                                                <span className="relative z-10">
+                                                    Detail Kegiatan
+                                                </span>
+                                                <div className="relative z-10 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all">
+                                                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
+                                                </div>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -448,10 +467,16 @@ export default function Welcome() {
             </section>
             {/* --- PROGRAM KERJA SECTION END --- */}
 
+            {/* === VIDEO PROFILE === */}
+            <VideoProfileSection />
+            {/* ================================= */}
+
             {/* --- CONTACT BEM FIK SECTION --- */}
-            <div className="relative z-20">
+            <div id="kontak" className="relative z-20">
                 <ContactBemFik />
             </div>
+            {/* --- FOOTER BEM FIK SECTION --- */}
+            <Footer />
         </div>
     );
 }

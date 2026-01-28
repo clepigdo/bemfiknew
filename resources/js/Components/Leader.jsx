@@ -6,6 +6,8 @@ import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 export default function BEMFIKLeadershipCarousel() {
     const [activeCategory, setActiveCategory] = useState("bph");
@@ -161,14 +163,77 @@ export default function BEMFIKLeadershipCarousel() {
 
             <div className="container mx-auto px-4 md:px-12 max-w-7xl">
                 {/* Header Section */}
-                <div className="text-center mb-16">
-                    <span className="text-blue-600 font-bold tracking-widest text-sm uppercase mb-2 block">
-                        Meet Our Leaders
-                    </span>
-                    <h2 className="text-5xl md:text-6xl font-extrabold text-blue-950 mb-6 tracking-tight">
-                        Kabinet Sacakarsa
-                    </h2>
-                    <div className="w-24 h-1.5 bg-blue-600 rounded-full mx-auto mb-6"></div>
+                <div className="relative text-center mb-16 group">
+                    {/* 1. Background Glow Effect (Subtle) */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200/30 rounded-full blur-[80px] -z-10 group-hover:bg-indigo-200/40 transition-colors duration-700"></div>
+
+                    {/* 2. Badge Kecil dengan Ikon */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-6"
+                    >
+                        <Sparkles className="w-4 h-4 text-blue-600 animate-pulse" />
+                        <span className="text-blue-700 font-bold tracking-widest text-xs uppercase">
+                            Meet Our Leaders
+                        </span>
+                    </motion.div>
+
+                    {/* 3. Judul Utama dengan Gradient Text */}
+                    <motion.h2
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.7, delay: 0.1 }}
+                        viewport={{ once: true }}
+                        className="text-5xl md:text-7xl font-black mb-2 tracking-tight"
+                    >
+                        <span className="text-blue-950">Kabinet </span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                            Sacakarsa
+                        </span>
+                    </motion.h2>
+
+                    {/* 4. Sub-Judul Periode */}
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="text-3xl md:text-4xl font-bold text-slate-400 mb-8"
+                    >
+                        PERIODE 2025/2026
+                    </motion.h3>
+
+                    {/* 5. Divider Interaktif (Memanjang saat Hover) */}
+                    <div className="flex justify-center items-center gap-2">
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "2rem" }}
+                            transition={{ duration: 1, delay: 0.3 }}
+                            className="h-1.5 bg-blue-200 rounded-full"
+                        ></motion.div>
+
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "6rem" }} // Lebar awal saat tampil
+                            whileHover={{ width: "12rem" }} // Lebar saat di-hover (Interaktif)
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                            }}
+                            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-lg shadow-blue-500/30"
+                        ></motion.div>
+
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "2rem" }}
+                            transition={{ duration: 1, delay: 0.3 }}
+                            className="h-1.5 bg-blue-200 rounded-full"
+                        ></motion.div>
+                    </div>
                 </div>
 
                 {/* Toggle Buttons */}

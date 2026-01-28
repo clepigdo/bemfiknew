@@ -51,5 +51,10 @@ Route::get('/pages/profil-mikat', function () {
     return Inertia::render('MikatPage'); 
 })->name('mikat');
 
+Route::get('/artikel', function () {
+    return Inertia::render('ArticlePage');
+})->name('artikel');
+
+
 
 

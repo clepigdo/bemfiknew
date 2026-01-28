@@ -193,6 +193,30 @@ export default function P3Page() {
         },
     ];
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 60 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" },
+        },
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2, // Jeda waktu antar elemen (0.2 detik)
+            },
+        },
+    };
+
+    const scaleIn = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
             <Head title="Profil P3 - BEM FIK" />
@@ -267,23 +291,107 @@ export default function P3Page() {
                             </motion.div>
 
                             {/* 2. BAGIAN KANAN (GAMBAR) - Slide dari Kanan ke Kiri */}
+                            {/* 2. BAGIAN KANAN (GAMBAR - SUPER UPGRADED) */}
                             <motion.div
-                                initial={{ opacity: 0, x: 100 }} // Awal: Transparan & Geser ke Kanan 100px
-                                whileInView={{ opacity: 1, x: 0 }} // Masuk: Muncul & Balik ke posisi 0
+                                initial={{ opacity: 0, x: 100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 transition={{
                                     duration: 0.8,
                                     ease: "easeOut",
                                     delay: 0.2,
-                                }} // Delay dikit biar gantian sama teks
+                                }}
                                 viewport={{ once: true }}
-                                className="md:w-1/2 flex justify-center relative"
+                                className="md:w-1/2 flex justify-center relative perspective-1000" // perspective untuk efek 3D
                             >
-                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[3rem] blur-3xl opacity-40 animate-pulse -rotate-6 transform scale-105"></div>
-                                <img
-                                    src="/images/division/p3k.jpg"
-                                    alt="Tim P3"
-                                    className="relative w-80 max-w-lg rounded-[3rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 z-10 object-cover"
-                                />
+                                {/* --- A. ANIMATED BACKGROUND BLOB --- */}
+                                <motion.div
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 20,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                    }}
+                                    className="absolute inset-0 w-full h-full bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-[60px] -z-10"
+                                ></motion.div>
+
+                                {/* --- B. WRAPPER GAMBAR UTAMA (FLOATING EFFECT) --- */}
+                                <motion.div
+                                    animate={{ y: [-15, 15, -15] }} // Gerakan naik turun (Levitasi)
+                                    transition={{
+                                        duration: 6,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                    }}
+                                    className="relative group"
+                                >
+                                    {/* Border/Frame Dekoratif di belakang */}
+                                    <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
+
+                                    {/* GAMBAR UTAMA */}
+                                    <img
+                                        src="/images/division/p3k.jpg"
+                                        alt="Tim P3"
+                                        className="relative w-80 max-w-lg rounded-[2.5rem] shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-500 z-10 object-cover border-4 border-white/20"
+                                    />
+
+                                    {/* --- C. FLOATING BADGE (GLASS EFFECT) --- */}
+                                    {/* Badge 1: Kiri Atas */}
+                                    <motion.div
+                                        animate={{ y: [10, -10, 10] }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: 1,
+                                        }}
+                                        className="absolute -top-6 -left-6 z-20 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/40 flex items-center gap-3"
+                                    >
+                                        <div className="bg-blue-100 p-2 rounded-full">
+                                            <Sparkles
+                                                size={20}
+                                                className="text-blue-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-slate-500 font-bold uppercase">
+                                                Status
+                                            </p>
+                                            <p className="text-sm font-bold text-slate-800">
+                                                Solid Team
+                                            </p>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Badge 2: Kanan Bawah */}
+                                    <motion.div
+                                        animate={{ y: [-10, 10, -10] }}
+                                        transition={{
+                                            duration: 5,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: 0.5,
+                                        }}
+                                        className="absolute -bottom-8 -right-8 z-20 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3 text-white"
+                                    >
+                                        <div className="bg-purple-500/20 p-2 rounded-full">
+                                            <Zap
+                                                size={20}
+                                                className="text-purple-400"
+                                            />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-slate-400 font-bold uppercase">
+                                                Focus
+                                            </p>
+                                            <p className="text-sm font-bold text-white">
+                                                High Impact
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </motion.div>
                             </motion.div>
                         </div>
 
@@ -294,11 +402,22 @@ export default function P3Page() {
 
                 {/* --- KONTEN BAWAH (CONTAINER) --- */}
                 <div className="container mx-auto px-6 md:px-12 relative z-10">
+                    {/* --- BAGIAN MEET OUR SQUAD (YANG DIREVISI) --- */}
                     <div className="container mx-auto px-6 md:px-12 py-24">
-                        <div className="relative text-center mb-20 group">
+                        {/* 1. ANIMASI HEADER SECTION */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={fadeInUp}
+                            className="relative text-center mb-20 group"
+                        >
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-blue-400/20 rounded-full blur-[80px] -z-10 group-hover:bg-purple-400/20 transition-colors duration-700"></div>
 
-                            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-blue-100 shadow-sm mb-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default">
+                            <motion.div
+                                variants={scaleIn}
+                                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-blue-100 shadow-sm mb-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default"
+                            >
                                 <span className="relative flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
@@ -306,14 +425,12 @@ export default function P3Page() {
                                 <span className="text-blue-600 font-bold tracking-widest text-xs uppercase">
                                     Meet Our Squad
                                 </span>
-                            </div>
+                            </motion.div>
 
-                            {/* Judul Besar dengan Gradasi & Dekorasi SVG */}
                             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
                                 P3 Kabinet{" "}
                                 <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                     Sacakarsa
-                                    {/* Garis Lengkung di bawah teks */}
                                     <svg
                                         className="absolute w-full h-3 -bottom-2 left-0 text-blue-400 opacity-60"
                                         viewBox="0 0 100 10"
@@ -329,7 +446,6 @@ export default function P3Page() {
                                 </span>
                             </h2>
 
-                            {/* Deskripsi */}
                             <p className="text-slate-600 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
                                 Dipimpin oleh individu berkompeten dan didukung
                                 oleh tim yang solid untuk menciptakan{" "}
@@ -343,17 +459,28 @@ export default function P3Page() {
                                 .
                             </p>
 
-                            {/* Divider yang Memanjang saat Hover */}
                             <div className="mt-8 flex justify-center">
-                                <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-48 transition-all duration-700 ease-out shadow-lg shadow-blue-500/30"></div>
+                                <motion.div
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: "6rem" }}
+                                    transition={{ duration: 0.8, delay: 0.2 }}
+                                    className="h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-48 transition-all duration-700 ease-out shadow-lg shadow-blue-500/30"
+                                ></motion.div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        {/* --- BAGIAN 1: LEADERS (KEPALA & SEKRETARIS) --- */}
-                        <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
+                        {/* 2. ANIMASI LEADERS (STAGGERED) */}
+                        <motion.div
+                            variants={staggerContainer}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="flex flex-col md:flex-row justify-center gap-8 mb-12"
+                        >
                             {leaders.map((member, index) => (
-                                <div
+                                <motion.div
                                     key={index}
+                                    variants={fadeInUp} // Animasi per item
                                     className="group relative h-[420px] w-full md:w-[320px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:-translate-y-3 ring-4 ring-white border-2 border-blue-100"
                                 >
                                     <div className="absolute top-4 right-4 z-20 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">
@@ -392,18 +519,25 @@ export default function P3Page() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
-                        {/* --- BAGIAN 2: STAFF MEMBERS --- */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {/* 3. ANIMASI STAFF MEMBERS (GRID STAGGERED) */}
+                        <motion.div
+                            variants={staggerContainer}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.1 }}
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                        >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
                                     index === 8 ? "lg:col-start-2" : "";
                                 return (
-                                    <div
+                                    <motion.div
                                         key={index}
+                                        variants={fadeInUp} // Animasi per item
                                         className={`group relative h-[350px] w-full ${centerClass} rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
                                     >
                                         <img
@@ -413,7 +547,6 @@ export default function P3Page() {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-                                        {/* Konten Teks */}
                                         <div className="absolute inset-0 flex flex-col justify-end p-6">
                                             <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
                                                 <h3 className="text-lg font-bold text-white mb-0.5 leading-tight">
@@ -440,15 +573,27 @@ export default function P3Page() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 );
                             })}
-                        </div>
+                        </motion.div>
                     </div>
-                    {/* --- PROGRAM UNGGULAN --- */}
-                    <div className="mb-24">
-                        <div className="text-center mb-20">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 mb-4">
+                    {/* --- PROGRAM UNGGULAN (ANIMATED) --- */}
+                    <div className="mb-24 overflow-hidden">
+                        {" "}
+                        {/* overflow-hidden penting agar animasi slide tidak bikin scroll horizontal */}
+                        {/* ANIMASI HEADER SECTION */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.5 }}
+                            variants={fadeInUp}
+                            className="text-center mb-20"
+                        >
+                            <motion.div
+                                variants={scaleIn}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 mb-4"
+                            >
                                 <Sparkles
                                     size={16}
                                     className="text-purple-600"
@@ -456,34 +601,50 @@ export default function P3Page() {
                                 <span className="text-purple-900 text-sm font-bold">
                                     FEATURED PROGRAMS
                                 </span>
-                            </div>
+                            </motion.div>
                             <h2 className="text-4xl md:text-5xl font-black text-slate-900">
                                 Program Kerja
                             </h2>
-                        </div>
-
+                        </motion.div>
                         <div className="flex flex-col gap-24">
                             {prokerList.map((item, index) => {
-                                // Cek apakah urutan genap atau ganjil
-                                // Jika ganjil (index 1, 3, dst), kita balik posisinya (Teks Kiri, Gambar Kanan)
                                 const isEven = index % 2 === 0;
 
                                 return (
-                                    <div
+                                    <motion.div
                                         key={index}
-                                        // LOGIKA ZIG-ZAG ADA DI SINI:
-                                        // 'flex-col': Mobile selalu atas-bawah.
-                                        // 'md:flex-row': Desktop normal (Gambar Kiri).
-                                        // 'md:flex-row-reverse': Desktop terbalik (Gambar Kanan).
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true, amount: 0.3 }} // Memicu animasi saat 30% elemen terlihat
+                                        // Mengatur layout Zig-Zag
                                         className={`flex flex-col ${
                                             isEven
                                                 ? "md:flex-row"
                                                 : "md:flex-row-reverse"
                                         } items-center gap-10 md:gap-16`}
                                     >
-                                        {/* --- BAGIAN GAMBAR --- */}
-                                        <div className="w-full md:w-1/2 relative group">
-                                            {/* Background Blur Effect sesuai warna proker */}
+                                        {/* --- BAGIAN GAMBAR (ANIMASI SLIDE & SCALE) --- */}
+                                        <motion.div
+                                            // Logika Animasi: Jika genap (kiri), slide dari kiri (-100). Jika ganjil (kanan), slide dari kanan (100).
+                                            variants={{
+                                                hidden: {
+                                                    opacity: 0,
+                                                    x: isEven ? -100 : 100,
+                                                    scale: 0.9,
+                                                },
+                                                visible: {
+                                                    opacity: 1,
+                                                    x: 0,
+                                                    scale: 1,
+                                                    transition: {
+                                                        duration: 0.8,
+                                                        ease: "easeOut",
+                                                    },
+                                                },
+                                            }}
+                                            className="w-full md:w-1/2 relative group"
+                                        >
+                                            {/* Background Blur Effect */}
                                             <div
                                                 className={`absolute inset-0 bg-gradient-to-r ${item.gradient} blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full`}
                                             ></div>
@@ -496,7 +657,7 @@ export default function P3Page() {
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                                                {/* Tag Kategori Nempel di Gambar */}
+                                                {/* Tag Kategori */}
                                                 <div className="absolute top-6 left-6">
                                                     <span
                                                         className={`px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold shadow-lg uppercase tracking-wider text-slate-900`}
@@ -505,12 +666,18 @@ export default function P3Page() {
                                                     </span>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
 
-                                        {/* --- BAGIAN TEKS --- */}
-                                        <div className="w-full md:w-1/2">
-                                            <div className="flex items-center gap-4 mb-4">
-                                                {/* Nomor Urut Besar */}
+                                        {/* --- BAGIAN TEKS (ANIMASI STAGGERED FADE UP) --- */}
+                                        <motion.div
+                                            variants={staggerContainer} // Mengatur anak-anaknya muncul berurutan
+                                            className="w-full md:w-1/2"
+                                        >
+                                            {/* 1. Header Nomor & Garis */}
+                                            <motion.div
+                                                variants={fadeInUp}
+                                                className="flex items-center gap-4 mb-4"
+                                            >
                                                 <span
                                                     className={`text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br ${item.gradient} opacity-20`}
                                                 >
@@ -519,22 +686,31 @@ export default function P3Page() {
                                                 <div
                                                     className={`h-px flex-1 bg-gradient-to-r ${item.gradient} opacity-30`}
                                                 ></div>
-                                            </div>
+                                            </motion.div>
 
-                                            <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
+                                            {/* 2. Judul */}
+                                            <motion.h3
+                                                variants={fadeInUp}
+                                                className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight"
+                                            >
                                                 {item.title}
-                                            </h3>
+                                            </motion.h3>
 
-                                            <p className="text-slate-600 text-lg leading-relaxed mb-8 text-justify">
+                                            {/* 3. Deskripsi */}
+                                            <motion.p
+                                                variants={fadeInUp}
+                                                className="text-slate-600 text-lg leading-relaxed mb-8 text-justify"
+                                            >
                                                 {item.desc}
-                                            </p>
+                                            </motion.p>
 
-                                            {/* Poin-poin */}
+                                            {/* 4. Poin-poin (Looping Staggered) */}
                                             <div className="space-y-4">
                                                 {item.points.map(
                                                     (point, idx) => (
-                                                        <div
+                                                        <motion.div
                                                             key={idx}
+                                                            variants={fadeInUp} // Muncul satu per satu
                                                             className="flex items-center gap-4 p-3 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
                                                         >
                                                             <div
@@ -547,12 +723,12 @@ export default function P3Page() {
                                                             <span className="text-slate-700 font-semibold text-sm md:text-base">
                                                                 {point}
                                                             </span>
-                                                        </div>
-                                                    )
+                                                        </motion.div>
+                                                    ),
                                                 )}
                                             </div>
-                                        </div>
-                                    </div>
+                                        </motion.div>
+                                    </motion.div>
                                 );
                             })}
                         </div>

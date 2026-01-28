@@ -43,42 +43,49 @@ export default function Navbar() {
                 </Link>
 
                 {/* Menu Links (Desktop) */}
+                {/* Menu Links (Desktop) */}
                 <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide text-white">
                     <Link
                         href="/"
                         className="hover:text-blue-300 transition-colors"
                     >
-                        Home
+                        Beranda
                     </Link>
                     <Link
-                        href="/tentang"
+                        href="/#tentang"
                         className="hover:text-blue-300 transition-colors"
                     >
                         Tentang
                     </Link>
                     <Link
-                        href="#"
+                        href="/#periode"
                         className="hover:text-blue-300 transition-colors"
                     >
                         Periode
                     </Link>
                     <Link
-                        href="#"
+                        href="/#divisi"
                         className="hover:text-blue-300 transition-colors"
                     >
                         Divisi
                     </Link>
                     <Link
-                        href="#"
+                        href="/#event"
                         className="hover:text-blue-300 transition-colors"
                     >
                         Event
                     </Link>
                     <Link
-                        href="#"
+                        href="/#kontak"
                         className="hover:text-blue-300 transition-colors"
                     >
                         Kontak
+                    </Link>
+                    <Link
+                        href="/artikel"
+                        className="hover:text-blue-300 transition-colors"
+                    >
+                        Artikel
                     </Link>
                 </div>
 
