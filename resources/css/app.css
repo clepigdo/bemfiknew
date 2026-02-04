@@ -7,6 +7,23 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Quill */
+.ql-editor {
+    min-height: 300px;
+    font-size: 16px;
+    color: white;
+}
+.ql-toolbar {
+    background: #1e293b; 
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.ql-container {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.ql-snow .ql-stroke {
+    stroke: #cbd5e1; 
+}
 @layer base {
     :root {
         --background: 0 0% 100%;

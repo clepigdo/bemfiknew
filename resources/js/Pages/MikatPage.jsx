@@ -17,38 +17,104 @@ import {
     Activity, // Ikon untuk aktivitas fisik
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function MikatPage() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Zilda Khoirun Nisa",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/zilda.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Rafi Ayodya Adhitama",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
-            instagram: "#",
+            image: "/images/periode/Sacakarsa/MIKAT/rafi.png",
             linkedin: "#",
         },
     ];
 
-    // Data Staff (Placeholder)
-    const staffMembers = Array(10)
-        .fill({
-            name: "Nama Staff",
+    const staffMembers = [
+        {
+            name: "Rafael Albion Savero",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/MIKAT/rafa.png",
             instagram: "#",
             linkedin: "#",
-        })
-        .map((staff, i) => ({
-            ...staff,
-            role: i > 7 ? "Staff Magang" : i > 3 ? "Staff Muda" : "Staff Ahli",
-        }));
+        },
+        {
+            name: "Elsa Dewi Anggraini",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MIKAT/elsa.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Robert Ang",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MIKAT/obet.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Hanaafi Arya Ditta",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MIKAT/arya.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Daffa Alghifari",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MIKAT/dafa.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Timoteus Aviel Nugroho",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/timoti.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Evan Janitra",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/evan.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Muhammad Ibnu Ikhsan",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/ibnu.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Adellya Hasna Khairunisa",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/adel.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Angelica Novia Zaharani",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/enjel.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Joice Aprilia",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MIKAT/joice.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
 
     // --- FOKUS UTAMA DIVISI MIKAT ---
     const focusPoints = [
@@ -471,7 +537,7 @@ export default function MikatPage() {
                         >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
-                                    index === 8 ? "lg:col-start-2" : "";
+                                    index === 8 ? "lg:col-start-1" : "";
                                 return (
                                     <motion.div
                                         key={index}
@@ -699,16 +765,13 @@ export default function MikatPage() {
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-orange-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                        Ikuti Kompetisi
+                                        Hubungi Kami
                                         <ArrowRight
                                             className="group-hover:translate-x-1 transition-transform"
                                             size={20}
                                         />
                                     </button>
 
-                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
-                                        Cek Jadwal Event
-                                    </button>
                                 </div>
                             </div>
 
@@ -720,14 +783,9 @@ export default function MikatPage() {
             </main>
 
             {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }

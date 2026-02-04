@@ -15,100 +15,106 @@ import {
     Briefcase, // Ikon baru untuk kerja
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function EkokrafPage() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Yohana Maysya Hutapea",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/mey.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Salsabila Bhany Rasyifa",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/Ekokraf/bani.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
 
     const staffMembers = [
-        // ... (Data staff bisa dibiarkan sama atau diisi data asli nanti)
         {
-            name: "Staff 1",
+            name: "Hasna Ariba Faatin",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/Ekokraf/hasna.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 2",
+            name: "Nabila Ramadhani",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/Ekokraf/bila.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 3",
+            name: "Tita Luqma Maulani",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/Ekokraf/tita.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 4",
+            name: "Saputri Azzrotun Lailatul",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/Ekokraf/alin.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 5",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+            name: "Michael Figo Saputra",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/Ekokraf/figo.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 6",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+            name: "Afrizal Irfan",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/ipan.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 7",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop",
+            name: "Evallea Kiara Putri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/eva.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 8",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+            name: "Maulia Dwi Asih",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/maul.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 9",
-            role: "Staff Magang",
-            image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop",
+            name: "Ahmad Davin Arva",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/dapin.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 10",
-            role: "Staff Magang",
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+            name: "Fadzila Rika Wardhani",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/zila.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Nabila Permata Putri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/Ekokraf/nabila.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
 
-    // --- UBAH FOCUS POINTS (Pilar Ekokraf) ---
     const focusPoints = [
         {
             title: "Entrepreneurship",
@@ -311,15 +317,13 @@ export default function EkokrafPage() {
                                 </p>
 
                                 <button className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                    Lihat Katalog Merch
+                                    Lihat Proker
                                     <ArrowRight
                                         className="group-hover:translate-x-1 transition-transform"
                                         size={20}
                                     />
                                 </button>
                             </motion.div>
-
-                            {/* 2. BAGIAN KANAN (GAMBAR - SUPER UPGRADED) */}
                             <motion.div
                                 initial={{ opacity: 0, x: 100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -355,14 +359,13 @@ export default function EkokrafPage() {
                                 >
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
 
-                                    {/* GANTI GAMBAR DI SINI DENGAN FOTO TIM EKOKRAF */}
                                     <img
-                                        src="/images/division/ekokraf.jpg" // Pastikan ada file ini atau ganti path
+                                        src="/images/division/ekokraf.jpg"
                                         alt="Tim Ekokraf"
                                         onError={(e) => {
                                             e.target.src =
                                                 "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop";
-                                        }} // Fallback image
+                                        }}
                                         className="relative w-80 max-w-lg rounded-[2.5rem] shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-500 z-10 object-cover border-4 border-white/20"
                                     />
 
@@ -494,7 +497,6 @@ export default function EkokrafPage() {
                             </div>
                         </motion.div>
 
-                        {/* 2. ANIMASI LEADERS (STAGGERED) */}
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
@@ -548,22 +550,21 @@ export default function EkokrafPage() {
                             ))}
                         </motion.div>
 
-                        {/* 3. ANIMASI STAFF MEMBERS (GRID STAGGERED) */}
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.1 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                            viewport={{ once: false, amount: 0.1 }}
+                            className="flex flex-wrap justify-center gap-6"
                         >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
-                                    index === 8 ? "lg:col-start-2" : "";
+                                    index === 8 ? "lg:col-start-1" : "";
                                 return (
                                     <motion.div
                                         key={index}
                                         variants={fadeInUp}
-                                        className={`group relative h-[350px] w-full ${centerClass} rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                                        className="group relative h-[350px] w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] max-w-[300px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
                                     >
                                         <img
                                             src={member.image}
@@ -792,10 +793,6 @@ export default function EkokrafPage() {
                                             size={20}
                                         />
                                     </button>
-
-                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
-                                        Cek Lapak FIK
-                                    </button>
                                 </div>
                             </div>
 
@@ -806,15 +803,9 @@ export default function EkokrafPage() {
                 </div>
             </main>
 
-            {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }

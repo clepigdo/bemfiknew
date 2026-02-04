@@ -16,39 +16,91 @@ import {
     Globe, // Ikon untuk Studi Banding
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function PrPage() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Fidela Ayu Syafira",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/dela.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Nailah Azfan Zarqarida",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/PR/ila.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
 
-    // Data Staff (Placeholder - bisa diisi data asli)
-    const staffMembers = Array(10)
-        .fill({
-            name: "Nama Staff",
+    const staffMembers = [
+        {
+            name: "Ezzat Dafanov Yunan",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/PR/ezzat.png",
             instagram: "#",
             linkedin: "#",
-        })
-        .map((staff, i) => ({
-            ...staff,
-            role: i > 7 ? "Staff Magang" : i > 3 ? "Staff Muda" : "Staff Ahli",
-        }));
-
+        },
+        {
+            name: "Rizqika Nadhifa Putri",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PR/difa.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Uray Rheyca Rahmadini",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PR/uray.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Intan Dwi Jayanti",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PR/dj.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Salwa Devita Sari",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PR/salwa.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Auryn Azaria Putri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PR/aurin.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Rachel Sifra",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PR/acel.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Sofia Chayatie",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PR/sopia.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Sinna Zahra Raufina",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PR/sinna.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
     // --- FOKUS UTAMA DIVISI PR ---
     const focusPoints = [
         {
@@ -234,7 +286,7 @@ export default function PrPage() {
                                 </button>
                             </motion.div>
 
-                            {/* 2. BAGIAN KANAN (GAMBAR - SUPER UPGRADED) */}
+                            {/* 2. BAGIAN KANAN */}
                             <motion.div
                                 initial={{ opacity: 0, x: 100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -474,7 +526,7 @@ export default function PrPage() {
                         >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
-                                    index === 8 ? "lg:col-start-2" : "";
+                                    index === 8 ? "lg:col-start-1" : "";
                                 return (
                                     <motion.div
                                         key={index}
@@ -720,14 +772,9 @@ export default function PrPage() {
             </main>
 
             {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }

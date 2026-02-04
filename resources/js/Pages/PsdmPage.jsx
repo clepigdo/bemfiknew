@@ -4,53 +4,106 @@ import Navbar from "../Components/Navbar";
 import {
     ArrowRight,
     CheckCircle2,
-    Users, // Ikon untuk SDM/Orang
-    UserPlus, // Ikon untuk Oprec
-    Heart, // Ikon untuk Bonding/Curhat
-    BookOpen, // Ikon untuk Edukasi/LKMM-TD
-    Coffee, // Ikon untuk Bukber/Santai
+    Users,
+    UserPlus,
+    Heart,
+    BookOpen,
+    Coffee,
     Sparkles,
     Zap,
     Instagram,
     Linkedin,
-    Target, // Ikon untuk Tujuan/PCP
-    Lightbulb, // Ikon untuk Brainstorming
-    Puzzle, // Ikon untuk Upgrading/Skill
+    Target,
+    Lightbulb,
+    Puzzle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function PsdmPage() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Naufal Hanif",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/hanif.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Clarissa Adriana",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/PSDM/clara.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
 
-    // Data Staff (Placeholder)
-    const staffMembers = Array(10)
-        .fill({
-            name: "Nama Staff",
+    // Data Staff
+    const staffMembers = [
+        {
+            name: "Jelita Septiana Sinaga",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/PSDM/jeje.png",
             instagram: "#",
             linkedin: "#",
-        })
-        .map((staff, i) => ({
-            ...staff,
-            role: i > 7 ? "Staff Magang" : i > 3 ? "Staff Muda" : "Staff Ahli",
-        }));
-
+        },
+        {
+            name: "Adelia Hermanto",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PSDM/adel.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Kanahaya Putri Juhara",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PSDM/naya.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Farras Hendi Praptama",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/PSDM/faras.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Delonix Regia Ofilianto",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PSDM/delonix.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Vanesha Berliana",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PSDM/vanesa.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Dinda Parastyananda",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PSDM/dinda.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Febry Amelia Putri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PSDM/febri.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Ratnasari Candra Septiani",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/PSDM/ratna.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
     // --- FOKUS UTAMA DIVISI PSDM ---
     const focusPoints = [
         {
@@ -214,7 +267,8 @@ export default function PsdmPage() {
                                         className="text-yellow-300"
                                     />
                                     <span className="text-white/90 text-sm font-semibold">
-                                        Divisi Pengembangan Sumber Daya Mahasiswa
+                                        Divisi Pengembangan Sumber Daya
+                                        Mahasiswa
                                     </span>
                                 </div>
 
@@ -483,7 +537,7 @@ export default function PsdmPage() {
                         >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
-                                    index === 8 ? "lg:col-start-2" : "";
+                                    index === 8 ? "lg:col-start-1" : "";
                                 return (
                                     <motion.div
                                         key={index}
@@ -711,15 +765,11 @@ export default function PsdmPage() {
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                        Daftar OPREC
+                                        Hubungi Kami
                                         <ArrowRight
                                             className="group-hover:translate-x-1 transition-transform"
                                             size={20}
                                         />
-                                    </button>
-
-                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
-                                        Hubungi Kami
                                     </button>
                                 </div>
                             </div>
@@ -732,14 +782,9 @@ export default function PsdmPage() {
             </main>
 
             {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }

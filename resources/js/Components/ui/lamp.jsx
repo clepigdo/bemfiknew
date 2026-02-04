@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "motion/react";
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Sparkles, Target } from "lucide-react";
 
@@ -16,35 +16,54 @@ export function LampDemo() {
                     duration: 0.8,
                     ease: "easeInOut",
                 }}
-                // Warna teks gelap tebal agar kontras
-                className="mt-8 bg-gradient-to-br from-slate-700 to-slate-900 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-7xl"
+                className="mt-8 bg-gradient-to-br from-[#EE99C2] via-white to-[#323EDD] py-4 bg-clip-text text-center text-4xl font-black tracking-tight text-transparent md:text-7xl"
             >
-                Visi & Misi
+                VISI & MISI
             </motion.h1>
 
-            {/* --- Konten Visi & Misi --- */}
+            {/* --- Container Grid --- */}
+            {/* Added perspective here to ensure 3D depth works */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full px-4 mb-20 relative z-50"
+                style={{ perspective: "1000px" }}
+                className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-4 mb-20 relative z-50"
             >
-                {/* === Kartu Visi === */}
-                <div className="group p-8 bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(8,145,178,0.15)] transition-all duration-300 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Sparkles className="w-32 h-32 text-cyan-600" />
+                {/* === KARTU VISI === */}
+                <Card3D className="bg-slate-900/40 border-white/10 hover:border-[#323EDD]/50 hover:shadow-[0_0_50px_rgba(50,62,221,0.2)]">
+                    {/* Background Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#323EDD]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Floating Icon Background */}
+                    <div
+                        className="absolute top-6 right-6 p-4 opacity-10 group-hover:opacity-20 transition-all duration-500 rotate-12"
+                        style={{ transform: "translateZ(40px)" }}
+                    >
+                        <Sparkles className="w-24 h-24 text-[#323EDD]" />
                     </div>
 
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="p-3 bg-cyan-50  text-cyan-600">
-                            <Sparkles size={28} />
+                    {/* Header: Ikon & Judul */}
+                    <div
+                        className="relative z-10 flex items-center gap-5 mb-6"
+                        style={{ transform: "translateZ(50px)" }}
+                    >
+                        <div className="p-4 bg-[#323EDD]/20 text-[#323EDD] rounded-2xl border border-[#323EDD]/20 shadow-[0_0_20px_rgba(50,62,221,0.3)]">
+                            <Sparkles size={32} />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">
-                            Visi
-                        </h3>
+                        <div>
+                            <h3 className="text-3xl font-black text-white tracking-tight">
+                                VISI
+                            </h3>
+                            <div className="h-1 w-12 bg-[#323EDD] rounded-full mt-1 shadow-[0_0_10px_#323EDD]"></div>
+                        </div>
                     </div>
 
-                    <p className="text-slate-600 leading-relaxed text-lg">
+                    {/* Konten */}
+                    <p
+                        className="relative z-10 text-slate-300 leading-loose text-lg text-justify font-light"
+                        style={{ transform: "translateZ(30px)" }}
+                    >
                         "Mewujudkan BEM FIK sebagai organisasi mahasiswa
                         proaktif dan kolaboratif yang berdampak positif dalam
                         mendukung pengembangan diri mahasiswa Fakultas Ilmu
@@ -52,60 +71,144 @@ export function LampDemo() {
                         sinergitas dengan mengedepankan loyalitas,
                         profesionalitas kerja dan tanggung jawab."
                     </p>
-                </div>
+                </Card3D>
 
-                {/* === Kartu Misi === */}
-                <div className="group p-8 rounded-3xl bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(8,145,178,0.15)] transition-all duration-300 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Target className="w-32 h-32 text-cyan-600" />
+                {/* === KARTU MISI === */}
+                <Card3D className="bg-slate-900/40 border-white/10 hover:border-[#EE99C2]/50 hover:shadow-[0_0_50px_rgba(238,153,194,0.2)]">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#EE99C2]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div
+                        className="absolute top-6 right-6 p-4 opacity-10 group-hover:opacity-20 transition-all duration-500 -rotate-12"
+                        style={{ transform: "translateZ(40px)" }}
+                    >
+                        <Target className="w-24 h-24 text-[#EE99C2]" />
                     </div>
 
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="p-3 bg-cyan-50 rounded-2xl text-cyan-600">
-                            <Target size={28} />
+                    <div
+                        className="relative z-10 flex items-center gap-5 mb-6"
+                        style={{ transform: "translateZ(50px)" }}
+                    >
+                        <div className="p-4 bg-[#EE99C2]/20 text-[#EE99C2] rounded-2xl border border-[#EE99C2]/20 shadow-[0_0_20px_rgba(238,153,194,0.3)]">
+                            <Target size={32} />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">
-                            Misi
-                        </h3>
+                        <div>
+                            <h3 className="text-3xl font-black text-white tracking-tight">
+                                MISI
+                            </h3>
+                            <div className="h-1 w-12 bg-[#EE99C2] rounded-full mt-1 shadow-[0_0_10px_#EE99C2]"></div>
+                        </div>
                     </div>
 
-                    <ul className="space-y-4 text-slate-600">
+                    <ul
+                        className="relative z-10 space-y-5 text-slate-300 text-justify font-light"
+                        style={{ transform: "translateZ(30px)" }}
+                    >
                         <ListItem text="Membangun BEM FIK berdasarkan ketuhanan, kekeluargaan dan keharmonisan." />
-                        <ListItem text="Meningkatkan peran aktif Sumber Daya Manusia Internal Organisasi yang inovatif dan komunikatif melalui diskusi terbuka dan evaluasi serta pengawasan terhadap akademik dan non akademik SDM Internal." />
-                        <ListItem text="Menjalin hubungan baik dengan seluruh civitas akademika dan aktivis organisasi mahasiswa di tingkat universitas dan fakultas serta lembaga eksternal terkait untuk mendukung keberhasilan program kerja organisasi." />
-                        <ListItem
-                            text="Mengoptimalkan fungsi media digital sebagai sarana komunikasi untuk memperluas jaringan organisasi dan penyebaran informasi yang kredibel bagi seluruh mahasiswa Fakultas Ilmu Komputer. 
-"
-                        />
-                        <ListItem
-                            text="Menjadi fasilitator bagi mahasiswa Fakultas Ilmu Komputer dalam mengembangkan kreativitas, minat dan bakat baik di dalam maupun di luar lingkup universitas.
-"
-                        />
+                        <ListItem text="Meningkatkan peran aktif Sumber Daya Manusia Internal Organisasi yang inovatif dan komunikatif." />
+                        <ListItem text="Menjalin hubungan baik dengan seluruh civitas akademika dan aktivis organisasi mahasiswa." />
+                        <ListItem text="Mengoptimalkan fungsi media digital sebagai sarana komunikasi untuk memperluas jaringan organisasi." />
+                        <ListItem text="Menjadi fasilitator bagi mahasiswa dalam mengembangkan kreativitas, minat dan bakat." />
                     </ul>
-                </div>
+                </Card3D>
             </motion.div>
         </LampContainer>
     );
 }
 
+// --- KOMPONEN LOGIKA 3D TILT (ANIMASI UTAMA) ---
+const Card3D = ({ children, className }) => {
+    const ref = useRef(null);
+
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(
+        mouseYSpring,
+        [-0.5, 0.5],
+        ["12deg", "-12deg"],
+    );
+    const rotateY = useTransform(
+        mouseXSpring,
+        [-0.5, 0.5],
+        ["-12deg", "12deg"],
+    );
+
+    const handleMouseMove = (e) => {
+        const rect = ref.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateY,
+                rotateX,
+                transformStyle: "preserve-3d",
+            }}
+            className={cn(
+                // PERBAIKAN: rounded-[2.5rem] ada di sini agar shadow mengikuti bentuk
+                "group relative h-full w-full rounded-[2.5rem] transition-all duration-200 ease-out",
+                className,
+            )}
+        >
+            {/* PERBAIKAN: Inner Container untuk memotong (clipping) sudut yang berlebih */}
+            {/* Kita pisahkan logic tilt (parent) dan logic rounded/overflow (child ini) */}
+            <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
+                {/* Border Cahaya */}
+                <div className="absolute inset-0 border border-white/5 group-hover:border-white/10 transition-colors duration-500 rounded-[2.5rem]"></div>
+
+                {/* Background Glass yang sebenarnya */}
+                <div className="absolute inset-0 backdrop-blur-xl"></div>
+            </div>
+
+            {/* Content Container - z-index tinggi agar bisa pop-out secara 3D */}
+            <div
+                className="relative h-full w-full p-8"
+                style={{ transformStyle: "preserve-3d" }}
+            >
+                {children}
+            </div>
+        </motion.div>
+    );
+};
+
+// --- LIST ITEM ---
 const ListItem = ({ text }) => (
     <li className="flex items-start gap-3">
-        <span className="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
+        <span className="mt-1.5 w-2 h-2 rounded-full bg-[#FBDF07] shrink-0 shadow-[0_0_10px_#FBDF07]" />
         <span className="text-base">{text}</span>
     </li>
 );
 
-// --- LAMP CONTAINER (DIPERBAIKI TOTAL UNTUK LIGHT MODE) ---
+// --- LAMP CONTAINER (BACKGROUND & LIGHTS) ---
 export const LampContainer = ({ children, className }) => {
     return (
         <div
             className={cn(
-                "relative flex min-h-screen flex-col items-center justify-start bg-white w-full z-0 pt-40",
+                "relative flex min-h-screen flex-col items-center justify-start bg-[#0a0f2c] w-full z-0 pt-40 overflow-hidden",
                 className,
             )}
         >
             <div className="absolute -top-20 left-0 flex w-full h-[600px] items-center justify-center isolate z-0 pointer-events-none ">
-                {/* Lampu Kanan - Warna diganti jadi CYAN-600 (Lebih Gelap) */}
+                {/* Lampu Kanan */}
                 <motion.div
                     initial={{ opacity: 0.5, width: "15rem" }}
                     whileInView={{ opacity: 1, width: "30rem" }}
@@ -117,13 +220,13 @@ export const LampContainer = ({ children, className }) => {
                     style={{
                         backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
                     }}
-                    className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-cyan-600 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+                    className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-[#323EDD] via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
                 >
-                    <div className="absolute w-[100%] left-0 bg-white h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-                    <div className="absolute w-40 h-[100%] left-0 bg-white bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+                    <div className="absolute w-[100%] left-0 bg-[#0a0f2c] h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+                    <div className="absolute w-40 h-[100%] left-0 bg-[#0a0f2c] bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
                 </motion.div>
 
-                {/* Lampu Kiri - Warna diganti jadi CYAN-600 (Lebih Gelap) */}
+                {/* Lampu Kiri */}
                 <motion.div
                     initial={{ opacity: 0.5, width: "15rem" }}
                     whileInView={{ opacity: 1, width: "30rem" }}
@@ -135,20 +238,19 @@ export const LampContainer = ({ children, className }) => {
                     style={{
                         backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
                     }}
-                    className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-cyan-600 text-white [--conic-position:from_290deg_at_center_top]"
+                    className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-[#323EDD] text-white [--conic-position:from_290deg_at_center_top]"
                 >
-                    <div className="absolute w-40 h-[100%] right-0 bg-white bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-                    <div className="absolute w-[100%] right-0 bg-white h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+                    <div className="absolute w-40 h-[100%] right-0 bg-[#0a0f2c] bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+                    <div className="absolute w-[100%] right-0 bg-[#0a0f2c] h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
                 </motion.div>
 
-                {/* Efek Blur/Glow Tengah - PERBAIKAN 3: Opacity dinaikkan jadi 0.6 */}
-                <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-white blur-2xl"></div>
+                <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-[#0a0f2c] blur-2xl"></div>
                 <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
 
-                {/* BOLA CAHAYA UTAMA - Ganti Cyan-600 dan Opacity tinggi */}
-                <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-600 opacity-40 blur-3xl"></div>
+                {/* GLOW UTAMA */}
+                <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-[#323EDD] opacity-50 blur-3xl"></div>
 
-                {/* Garis Neon Kecil */}
+                {/* AKSEN GLOW */}
                 <motion.div
                     initial={{ width: "8rem" }}
                     whileInView={{ width: "16rem" }}
@@ -157,10 +259,10 @@ export const LampContainer = ({ children, className }) => {
                         duration: 0.8,
                         ease: "easeInOut",
                     }}
-                    className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-cyan-400 blur-2xl"
+                    className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-[#EE99C2] blur-2xl opacity-60"
                 ></motion.div>
 
-                {/* Garis Horizontal Tegas */}
+                {/* GARIS HORIZONTAL */}
                 <motion.div
                     initial={{ width: "15rem" }}
                     whileInView={{ width: "30rem" }}
@@ -169,11 +271,10 @@ export const LampContainer = ({ children, className }) => {
                         duration: 0.8,
                         ease: "easeInOut",
                     }}
-                    className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-cyan-600 "
+                    className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-[#323EDD]"
                 ></motion.div>
 
-                {/* Penutup Atas */}
-                <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-white "></div>
+                <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-[#0a0f2c] "></div>
             </div>
 
             <div className="relative z-50 flex flex-col items-center px-5 w-full">

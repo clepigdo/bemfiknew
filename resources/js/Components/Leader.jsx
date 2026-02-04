@@ -16,7 +16,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Alfino Kautsar Bahri",
             role: "Gubernur",
-            img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/BPH/finoo.png",
             quote: "Memimpin dengan integritas dan dedikasi",
             contact: {
                 email: "ketua@bemfik.udinus.ac.id",
@@ -26,7 +26,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Putri Rossa Ananta",
             role: "Wakil Gubernur",
-            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/BPH/putri.png",
             quote: "Berinovasi untuk kemajuan bersama",
             contact: {
                 email: "wakil@bemfik.udinus.ac.id",
@@ -36,7 +36,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Rico Fernandez",
             role: "Sekretaris Umum 1",
-            img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/BPH/rico.png",
             quote: "Mengorganisir dengan presisi",
             contact: {
                 email: "sekretaris@bemfik.udinus.ac.id",
@@ -46,7 +46,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Ailsa Najwa Sopo",
             role: "Sekretaris Umum 2",
-            img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/BPH/caca.png",
             quote: "Mengelola dengan transparansi",
             contact: {
                 email: "bendahara@bemfik.udinus.ac.id",
@@ -56,7 +56,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Sarah Fatimatul Sopo",
             role: "Bendahara Umum",
-            img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/BPH/sarah.png",
             quote: "Mengelola dengan transparansi",
             contact: {
                 email: "bendahara@bemfik.udinus.ac.id",
@@ -70,7 +70,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Igdo Ragil Manuel",
             role: "Kepala Divisi P3",
-            img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/igdo.png",
             quote: "Mengembangkan potensi mahasiswa",
             contact: {
                 email: "p3@bemfik.udinus.ac.id",
@@ -78,9 +78,9 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Mey Labubu",
+            name: "Yohana Maysya Hutapea",
             role: "Kepala Divisi Ekokraf",
-            img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/mey.png",
             quote: "Kreativitas untuk kesejahteraan",
             contact: {
                 email: "ekokraf@bemfik.udinus.ac.id",
@@ -88,9 +88,9 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Zilda Labubu",
+            name: "Zilda Khoirun Nisa",
             role: "Kepala Divisi Mikat",
-            img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/zilda.png",
             quote: "Komunikasi yang efektif",
             contact: {
                 email: "mikat@bemfik.udinus.ac.id",
@@ -98,9 +98,9 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Dela Labubu",
+            name: "Fidela Ayu Syafira",
             role: "Kepala Divisi PR",
-            img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/dela.png",
             quote: "Membangun relasi strategis",
             contact: {
                 email: "humas@bemfik.udinus.ac.id",
@@ -108,9 +108,9 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Hanif Noorsafitri",
+            name: "Naufal Hanif",
             role: "Kepala Divisi PSDM",
-            img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/hanif.png",
             quote: "Semangat juang dalam prestasi",
             contact: {
                 email: "olahraga@bemfik.udinus.ac.id",
@@ -118,9 +118,9 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Lala Move",
+            name: "Dhilla Mazaya",
             role: "Kepala Divisi Medkref",
-            img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+            img: "/images/periode/Sacakarsa/KADIV/lala.png",
             quote: "Seni sebagai ekspresi jiwa",
             contact: {
                 email: "seni@bemfik.udinus.ac.id",
@@ -136,11 +136,9 @@ export default function BEMFIKLeadershipCarousel() {
         setActiveCategory(category);
         setTimeout(() => setIsAnimating(false), 500); // Reset state animasi
     };
-
-    // --- LOGIKA DUPLIKASI DATA ---
+    
     const rawData = activeCategory === "bph" ? dataBPH : dataKadiv;
-
-    // Duplikat data BPH agar cukup untuk looping (karena cuma 4)
+    
     let finalData = rawData;
     if (activeCategory === "bph" && rawData.length < 6) {
         finalData = [...rawData, ...rawData, ...rawData];

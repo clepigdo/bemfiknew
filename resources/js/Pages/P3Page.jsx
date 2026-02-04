@@ -13,92 +13,93 @@ import {
     Linkedin,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function P3Page() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Igdo Ragil Manuel",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/igdo.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Anindita Ayu Pramesti",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/anin.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
     const staffMembers = [
         {
-            name: "Staff 1",
+            name: "Firnanda Rahmawati",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/firnanda.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 2",
+            name: "Rossa Queena Innaka",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/oca.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 3",
+            name: "Kohelet Aprillo Toka",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/kohelet.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 4",
+            name: "Prasetyo Bayu Aji Pamungkas",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/bayu.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 5",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+            name: "Kanaya Kinta Safitri",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/P3/kintul.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 6",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+            name: "Binfilio Andri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/P3/andri.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 7",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop",
+            name: "Dona Sukmawati",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/P3/dona.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 8",
-            role: "Staff Muda",
-            image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+            name: "Sahla Nur Laili",
+            role: "Anggota AKtif",
+            image: "/images/periode/Sacakarsa/P3/sahla.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 9",
-            role: "Staff Magang",
-            image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop",
+            name: "Ajeng Paramitha",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/P3/ajeng.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Staff 10",
-            role: "Staff Magang",
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+            name: "Asti Callista Andhani",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/P3/asti.png",
             instagram: "#",
             linkedin: "#",
         },
@@ -134,7 +135,7 @@ export default function P3Page() {
         {
             title: "FIK BOOST",
             desc: "Inisiatif strategis untuk meningkatkan kapasitas dan kompetensi anggota ormawa melalui pelatihan terspesialisasi dan penguatan jejaring kolaboratif.",
-            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/fikboost.jpg",
             points: [
                 "Peningkatan Kompetensi",
                 "Standardisasi Acara",
@@ -146,7 +147,7 @@ export default function P3Page() {
         {
             title: "PRISMA",
             desc: "Program Riset dan Analisis Mahasiswa yang mengkaji isu-isu sosial, kesehatan, dan politik untuk menghasilkan literatur ilmiah yang kredibel.",
-            image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/prisma.jpeg",
             points: [
                 "Kajian Isu Terkini",
                 "Publikasi Artikel",
@@ -158,7 +159,7 @@ export default function P3Page() {
         {
             title: "FIKTION",
             desc: "Gerakan sosial pendidikan bagi anak-anak marjinal di Semarang, memberikan bimbingan belajar dan akses pendidikan layak.",
-            image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/fiktion.jpeg",
             points: [
                 "Social Charity",
                 "Bimbingan Belajar",
@@ -182,7 +183,7 @@ export default function P3Page() {
         {
             title: "PPK Ormawa",
             desc: "Program penguatan kapasitas organisasi kemahasiswaan melalui pengabdian dan pemberdayaan masyarakat desa binaan.",
-            image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1000&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/P3/ppko1.jpg",
             points: [
                 "Pemberdayaan Desa",
                 "Pengabdian Masyarakat",
@@ -247,7 +248,7 @@ export default function P3Page() {
                                 initial={{ opacity: 0, x: -100 }} // Awal: Transparan & Geser ke Kiri 100px
                                 whileInView={{ opacity: 1, x: 0 }} // Masuk: Muncul & Balik ke posisi 0
                                 transition={{ duration: 0.8, ease: "easeOut" }} // Durasi animasi
-                                viewport={{ once: true }} // Animasi cuma jalan sekali (biar ga pusing kalau scroll naik turun)
+                                viewport={{ once: false }}
                                 className="md:w-1/2 flex flex-col items-start"
                             >
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-8">
@@ -289,9 +290,6 @@ export default function P3Page() {
                                     />
                                 </button>
                             </motion.div>
-
-                            {/* 2. BAGIAN KANAN (GAMBAR) - Slide dari Kanan ke Kiri */}
-                            {/* 2. BAGIAN KANAN (GAMBAR - SUPER UPGRADED) */}
                             <motion.div
                                 initial={{ opacity: 0, x: 100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -300,7 +298,7 @@ export default function P3Page() {
                                     ease: "easeOut",
                                     delay: 0.2,
                                 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 className="md:w-1/2 flex justify-center relative perspective-1000" // perspective untuk efek 3D
                             >
                                 {/* --- A. ANIMATED BACKGROUND BLOB --- */}
@@ -402,13 +400,11 @@ export default function P3Page() {
 
                 {/* --- KONTEN BAWAH (CONTAINER) --- */}
                 <div className="container mx-auto px-6 md:px-12 relative z-10">
-                    {/* --- BAGIAN MEET OUR SQUAD (YANG DIREVISI) --- */}
                     <div className="container mx-auto px-6 md:px-12 py-24">
-                        {/* 1. ANIMASI HEADER SECTION */}
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0.3 }}
                             variants={fadeInUp}
                             className="relative text-center mb-20 group"
                         >
@@ -468,19 +464,17 @@ export default function P3Page() {
                                 ></motion.div>
                             </div>
                         </motion.div>
-
-                        {/* 2. ANIMASI LEADERS (STAGGERED) */}
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{ once: false, amount: 0.2 }}
                             className="flex flex-col md:flex-row justify-center gap-8 mb-12"
                         >
                             {leaders.map((member, index) => (
                                 <motion.div
                                     key={index}
-                                    variants={fadeInUp} // Animasi per item
+                                    variants={fadeInUp}
                                     className="group relative h-[420px] w-full md:w-[320px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:-translate-y-3 ring-4 ring-white border-2 border-blue-100"
                                 >
                                     <div className="absolute top-4 right-4 z-20 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">
@@ -522,13 +516,11 @@ export default function P3Page() {
                                 </motion.div>
                             ))}
                         </motion.div>
-
-                        {/* 3. ANIMASI STAFF MEMBERS (GRID STAGGERED) */}
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.1 }}
+                            viewport={{ once: false, amount: 0.1 }}
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                         >
                             {staffMembers.map((member, index) => {
@@ -537,7 +529,7 @@ export default function P3Page() {
                                 return (
                                     <motion.div
                                         key={index}
-                                        variants={fadeInUp} // Animasi per item
+                                        variants={fadeInUp}
                                         className={`group relative h-[350px] w-full ${centerClass} rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
                                     >
                                         <img
@@ -578,15 +570,13 @@ export default function P3Page() {
                             })}
                         </motion.div>
                     </div>
-                    {/* --- PROGRAM UNGGULAN (ANIMATED) --- */}
+                    {/* --- PROGRAM UNGGULAN --- */}
                     <div className="mb-24 overflow-hidden">
                         {" "}
-                        {/* overflow-hidden penting agar animasi slide tidak bikin scroll horizontal */}
-                        {/* ANIMASI HEADER SECTION */}
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: false, amount: 0.5 }}
                             variants={fadeInUp}
                             className="text-center mb-20"
                         >
@@ -615,17 +605,14 @@ export default function P3Page() {
                                         key={index}
                                         initial="hidden"
                                         whileInView="visible"
-                                        viewport={{ once: true, amount: 0.3 }} // Memicu animasi saat 30% elemen terlihat
-                                        // Mengatur layout Zig-Zag
+                                        viewport={{ once: false, amount: 0.3 }}
                                         className={`flex flex-col ${
                                             isEven
                                                 ? "md:flex-row"
                                                 : "md:flex-row-reverse"
                                         } items-center gap-10 md:gap-16`}
                                     >
-                                        {/* --- BAGIAN GAMBAR (ANIMASI SLIDE & SCALE) --- */}
                                         <motion.div
-                                            // Logika Animasi: Jika genap (kiri), slide dari kiri (-100). Jika ganjil (kanan), slide dari kanan (100).
                                             variants={{
                                                 hidden: {
                                                     opacity: 0,
@@ -644,7 +631,6 @@ export default function P3Page() {
                                             }}
                                             className="w-full md:w-1/2 relative group"
                                         >
-                                            {/* Background Blur Effect */}
                                             <div
                                                 className={`absolute inset-0 bg-gradient-to-r ${item.gradient} blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full`}
                                             ></div>
@@ -656,8 +642,6 @@ export default function P3Page() {
                                                     className="w-full h-[300px] md:h-[400px] object-cover"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-
-                                                {/* Tag Kategori */}
                                                 <div className="absolute top-6 left-6">
                                                     <span
                                                         className={`px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold shadow-lg uppercase tracking-wider text-slate-900`}
@@ -668,12 +652,12 @@ export default function P3Page() {
                                             </div>
                                         </motion.div>
 
-                                        {/* --- BAGIAN TEKS (ANIMASI STAGGERED FADE UP) --- */}
+                                        {/* --- BAGIAN TEKS --- */}
                                         <motion.div
-                                            variants={staggerContainer} // Mengatur anak-anaknya muncul berurutan
+                                            variants={staggerContainer}
                                             className="w-full md:w-1/2"
                                         >
-                                            {/* 1. Header Nomor & Garis */}
+                                            {/* 1. Header Nomor */}
                                             <motion.div
                                                 variants={fadeInUp}
                                                 className="flex items-center gap-4 mb-4"
@@ -772,17 +756,18 @@ export default function P3Page() {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                                    <a
+                                        href="https://wa.me/6282006325524"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"
+                                    >
                                         Hubungi Kami
                                         <ArrowRight
                                             className="group-hover:translate-x-1 transition-transform"
                                             size={20}
                                         />
-                                    </button>
-
-                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
-                                        Lihat Portfolio
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
 
@@ -794,14 +779,9 @@ export default function P3Page() {
             </main>
 
             {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }

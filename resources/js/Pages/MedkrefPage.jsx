@@ -17,38 +17,106 @@ import {
     Layers, // Ikon untuk Manajemen Konten
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 export default function MedkrefPage() {
     const leaders = [
         {
-            name: "Nama Lengkap",
+            name: "Dhilla Mazaya",
             role: "Kepala Divisi",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/KADIV/lala.png",
             instagram: "#",
             linkedin: "#",
         },
         {
-            name: "Nama Lengkap",
+            name: "Laily Muthia Nabilmanan",
             role: "Sekretaris",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/MEDKREF/laili.png",
             instagram: "#",
             linkedin: "#",
         },
     ];
 
     // Data Staff (Placeholder)
-    const staffMembers = Array(10)
-        .fill({
-            name: "Nama Staff",
+    const staffMembers = [
+        {
+            name: "Danang Ade Hidayat",
             role: "Staff Ahli",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+            image: "/images/periode/Sacakarsa/MEDKREF/danang.png",
             instagram: "#",
             linkedin: "#",
-        })
-        .map((staff, i) => ({
-            ...staff,
-            role: i > 7 ? "Staff Magang" : i > 3 ? "Staff Muda" : "Staff Ahli",
-        }));
+        },
+        {
+            name: "Sultan Sahrul Abdullah",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MEDKREF/sultan.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Sulaksana Himawan Saputra",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MEDKREF/sulak.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Candra Wijayanto",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MEDKREF/candra.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Laurensius Gilang",
+            role: "Staff Ahli",
+            image: "/images/periode/Sacakarsa/MEDKREF/gilang.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Syaifurrizal",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/ipur.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Louise Mendy Pujianto",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/lois.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Yolanda Adelia Rizki",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/yolanda.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Farda Syarif Mubarok",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/farda.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Nakeisya Adhinda Putri",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/nake.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+        {
+            name: "Farid Fadlian Pratama",
+            role: "Anggota Aktif",
+            image: "/images/periode/Sacakarsa/MEDKREF/fadil.png",
+            instagram: "#",
+            linkedin: "#",
+        },
+    ];
 
     // --- FOKUS UTAMA DIVISI MEDKREF ---
     const focusPoints = [
@@ -258,10 +326,8 @@ export default function MedkrefPage() {
                                     className="relative group"
                                 >
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
-
-                                    {/* GANTI GAMBAR DENGAN FOTO TIM MEDKREF */}
                                     <img
-                                        src="/images/division/medkref.jpg" // Pastikan ada gambar ini
+                                        src="/images/division/medkref.jpg"
                                         alt="Tim Medkref"
                                         onError={(e) => {
                                             e.target.src =
@@ -463,7 +529,7 @@ export default function MedkrefPage() {
                         >
                             {staffMembers.map((member, index) => {
                                 const centerClass =
-                                    index === 8 ? "lg:col-start-2" : "";
+                                    index === 8 ? "lg:col-start-1" : "";
                                 return (
                                     <motion.div
                                         key={index}
@@ -712,14 +778,9 @@ export default function MedkrefPage() {
             </main>
 
             {/* Footer */}
-            <footer className="relative bg-slate-900 text-white text-center py-12 mt-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-                <div className="relative">
-                    <p className="text-slate-400 font-medium">
-                        &copy; 2025 BEM FIK UDINUS. Crafted with passion.
-                    </p>
-                </div>
-            </footer>
+            <div className="mt-10">
+                <Footer />
+            </div>
         </div>
     );
 }
