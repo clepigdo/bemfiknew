@@ -24,14 +24,14 @@ export default function MikatPage() {
         {
             name: "Zilda Khoirun Nisa",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/zilda.png",
+            image: "/images/periode/Sacakarsa/KADIV/zilda.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Rafi Ayodya Adhitama",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/MIKAT/rafi.png",
+            image: "/images/periode/Sacakarsa/MIKAT/rafi.webp",
             linkedin: "#",
         },
     ];
@@ -40,77 +40,77 @@ export default function MikatPage() {
         {
             name: "Rafael Albion Savero",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MIKAT/rafa.png",
+            image: "/images/periode/Sacakarsa/MIKAT/rafa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Elsa Dewi Anggraini",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MIKAT/elsa.png",
+            image: "/images/periode/Sacakarsa/MIKAT/elsa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Robert Ang",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MIKAT/obet.png",
+            image: "/images/periode/Sacakarsa/MIKAT/obet.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Hanaafi Arya Ditta",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MIKAT/arya.png",
+            image: "/images/periode/Sacakarsa/MIKAT/arya.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Daffa Alghifari",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MIKAT/dafa.png",
+            image: "/images/periode/Sacakarsa/MIKAT/dafa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Timoteus Aviel Nugroho",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/timoti.png",
+            image: "/images/periode/Sacakarsa/MIKAT/timoti.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Evan Janitra",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/evan.png",
+            image: "/images/periode/Sacakarsa/MIKAT/evan.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Muhammad Ibnu Ikhsan",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/ibnu.png",
+            image: "/images/periode/Sacakarsa/MIKAT/ibnu.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Adellya Hasna Khairunisa",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/adel.png",
+            image: "/images/periode/Sacakarsa/MIKAT/adel.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Angelica Novia Zaharani",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/enjel.png",
+            image: "/images/periode/Sacakarsa/MIKAT/enjel.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Joice Aprilia",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MIKAT/joice.png",
+            image: "/images/periode/Sacakarsa/MIKAT/joice.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -335,7 +335,7 @@ export default function MikatPage() {
 
                                     {/* GANTI GAMBAR DENGAN FOTO TIM MIKAT */}
                                     <img
-                                        src="/images/division/mikat.jpg" // Pastikan ada gambar ini
+                                        src="/images/division/mikat.webp" 
                                         alt="Tim MIKAT"
                                         onError={(e) => {
                                             e.target.src =

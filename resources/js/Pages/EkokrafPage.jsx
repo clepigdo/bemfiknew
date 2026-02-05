@@ -22,14 +22,14 @@ export default function EkokrafPage() {
         {
             name: "Yohana Maysya Hutapea",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/mey.png",
+            image: "/images/periode/Sacakarsa/KADIV/mey.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Salsabila Bhany Rasyifa",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/Ekokraf/bani.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/bani.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -39,77 +39,77 @@ export default function EkokrafPage() {
         {
             name: "Hasna Ariba Faatin",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/Ekokraf/hasna.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/hasna.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Nabila Ramadhani",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/Ekokraf/bila.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/bila.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Tita Luqma Maulani",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/Ekokraf/tita.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/tita.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Saputri Azzrotun Lailatul",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/Ekokraf/alin.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/alin.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Michael Figo Saputra",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/Ekokraf/figo.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/figo.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Afrizal Irfan",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/ipan.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/ipan.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Evallea Kiara Putri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/eva.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/eva.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Maulia Dwi Asih",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/maul.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/maul.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Ahmad Davin Arva",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/dapin.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/dapin.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Fadzila Rika Wardhani",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/zila.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/zila.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Nabila Permata Putri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/Ekokraf/nabila.png",
+            image: "/images/periode/Sacakarsa/Ekokraf/nabila.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -360,7 +360,7 @@ export default function EkokrafPage() {
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
 
                                     <img
-                                        src="/images/division/ekokraf.jpg"
+                                        src="/images/division/ekokraf.webp"
                                         alt="Tim Ekokraf"
                                         onError={(e) => {
                                             e.target.src =

@@ -11,9 +11,10 @@ import {
     Settings,
     ArrowRight,
     TrendingUp,
+    LayoutGrid,
 } from "lucide-react";
 
-export default function Dashboard({ auth }) {
+export default function Dashboard({ auth, stats }) {
     return (
         <div className="min-h-screen bg-[#0B0F19] text-white font-sans selection:bg-indigo-500 selection:text-white">
             <Head title="Dashboard Admin" />
@@ -60,35 +61,39 @@ export default function Dashboard({ auth }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     <StatCard
                         title="Total Artikel"
-                        value="12"
+                        value={stats.artikel.total}
                         icon={<FileText size={24} />}
                         color="text-blue-400"
                         bg="bg-blue-400/10"
-                        trend="+2 bulan ini"
+                        trend={stats.artikel.trend}
+                        trendColor={stats.artikel.trend_color}
                     />
                     <StatCard
                         title="Pengurus Aktif"
-                        value="48"
+                        value={stats.pengurus.total}
                         icon={<Users size={24} />}
                         color="text-purple-400"
                         bg="bg-purple-400/10"
-                        trend="Tetap"
+                        trend={stats.pengurus.trend}
+                        trendColor={stats.pengurus.trend_color}
                     />
                     <StatCard
                         title="Program Kerja"
-                        value="8"
+                        value={stats.proker.total}
                         icon={<LayoutDashboard size={24} />}
                         color="text-emerald-400"
                         bg="bg-emerald-400/10"
-                        trend="3 Selesai"
+                        trend={stats.proker.trend}
+                        trendColor={stats.proker.trend_color}
                     />
                     <StatCard
                         title="Pengunjung"
-                        value="1.2k"
+                        value={stats.pengunjung.total}
                         icon={<Activity size={24} />}
                         color="text-orange-400"
                         bg="bg-orange-400/10"
-                        trend="+15% naik"
+                        trend={stats.pengunjung.trend}
+                        trendColor={stats.pengunjung.trend_color}
                     />
                 </div>
 
@@ -135,6 +140,24 @@ export default function Dashboard({ auth }) {
                                         Segera Hadir
                                     </p>
                                 </div>
+                                <Link
+                                    href={route("programs.index")}
+                                    className="group p-5 rounded-2xl bg-white/5 hover:bg-emerald-600 hover:scale-[1.02] border border-white/5 transition-all duration-300"
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className="p-3 rounded-xl bg-white/10 text-white group-hover:bg-white group-hover:text-emerald-600 transition-colors">
+                                            <LayoutGrid size={24} />
+                                        </div>
+                                        <ArrowRight className="text-white/20 group-hover:text-white" />
+                                    </div>
+                                    <h3 className="text-lg font-bold mb-1">
+                                        Program Kerja
+                                    </h3>
+                                    <p className="text-sm text-slate-400 group-hover:text-emerald-100">
+                                        Kelola agenda kegiatan dan dokumentasi
+                                        proker BEM.
+                                    </p>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -169,12 +192,14 @@ export default function Dashboard({ auth }) {
     );
 }
 
-function StatCard({ title, value, icon, color, bg, trend }) {
+function StatCard({ title, value, icon, color, bg, trend, trendColor }) {
     return (
         <div className="p-6 rounded-3xl bg-[#131926] border border-white/5 hover:border-white/10 transition-colors group">
             <div className="flex justify-between items-start mb-4">
                 <div className={`p-3 rounded-xl ${bg} ${color}`}>{icon}</div>
-                <div className="flex items-center gap-1 text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded-full">
+                <div
+                    className={`flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full bg-white/5 ${trendColor || "text-emerald-400"}`}
+                >
                     <TrendingUp size={12} /> {trend}
                 </div>
             </div>

@@ -31,7 +31,7 @@ export function ParallaxSeparator() {
             >
                 <div className="absolute inset-0"></div> {/* Overlay Gelap */}
                 <img
-                    src="/images/seruan.jpeg"
+                    src="/images/seruan.webp"
                     alt="Parallax Background"
                     className="w-full h-full object-cover grayscale opacity-70"
                 />

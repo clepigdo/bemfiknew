@@ -16,7 +16,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Alfino Kautsar Bahri",
             role: "Gubernur",
-            img: "/images/periode/Sacakarsa/BPH/finoo.png",
+            img: "/images/periode/Sacakarsa/BPH/finoo.webp",
             quote: "Memimpin dengan integritas dan dedikasi",
             contact: {
                 email: "ketua@bemfik.udinus.ac.id",
@@ -26,7 +26,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Putri Rossa Ananta",
             role: "Wakil Gubernur",
-            img: "/images/periode/Sacakarsa/BPH/putri.png",
+            img: "/images/periode/Sacakarsa/BPH/putri.webp",
             quote: "Berinovasi untuk kemajuan bersama",
             contact: {
                 email: "wakil@bemfik.udinus.ac.id",
@@ -36,7 +36,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Rico Fernandez",
             role: "Sekretaris Umum 1",
-            img: "/images/periode/Sacakarsa/BPH/rico.png",
+            img: "/images/periode/Sacakarsa/BPH/rico.webp",
             quote: "Mengorganisir dengan presisi",
             contact: {
                 email: "sekretaris@bemfik.udinus.ac.id",
@@ -46,7 +46,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Ailsa Najwa Sopo",
             role: "Sekretaris Umum 2",
-            img: "/images/periode/Sacakarsa/BPH/caca.png",
+            img: "/images/periode/Sacakarsa/BPH/caca.webp",
             quote: "Mengelola dengan transparansi",
             contact: {
                 email: "bendahara@bemfik.udinus.ac.id",
@@ -56,7 +56,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Sarah Fatimatul Sopo",
             role: "Bendahara Umum",
-            img: "/images/periode/Sacakarsa/BPH/sarah.png",
+            img: "/images/periode/Sacakarsa/BPH/sarah.webp",
             quote: "Mengelola dengan transparansi",
             contact: {
                 email: "bendahara@bemfik.udinus.ac.id",
@@ -70,7 +70,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Igdo Ragil Manuel",
             role: "Kepala Divisi P3",
-            img: "/images/periode/Sacakarsa/KADIV/igdo.png",
+            img: "/images/periode/Sacakarsa/KADIV/igdo.webp",
             quote: "Mengembangkan potensi mahasiswa",
             contact: {
                 email: "p3@bemfik.udinus.ac.id",
@@ -80,7 +80,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Yohana Maysya Hutapea",
             role: "Kepala Divisi Ekokraf",
-            img: "/images/periode/Sacakarsa/KADIV/mey.png",
+            img: "/images/periode/Sacakarsa/KADIV/mey.webp",
             quote: "Kreativitas untuk kesejahteraan",
             contact: {
                 email: "ekokraf@bemfik.udinus.ac.id",
@@ -90,7 +90,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Zilda Khoirun Nisa",
             role: "Kepala Divisi Mikat",
-            img: "/images/periode/Sacakarsa/KADIV/zilda.png",
+            img: "/images/periode/Sacakarsa/KADIV/zilda.webp",
             quote: "Komunikasi yang efektif",
             contact: {
                 email: "mikat@bemfik.udinus.ac.id",
@@ -100,7 +100,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Fidela Ayu Syafira",
             role: "Kepala Divisi PR",
-            img: "/images/periode/Sacakarsa/KADIV/dela.png",
+            img: "/images/periode/Sacakarsa/KADIV/dela.webp",
             quote: "Membangun relasi strategis",
             contact: {
                 email: "humas@bemfik.udinus.ac.id",
@@ -110,7 +110,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Naufal Hanif",
             role: "Kepala Divisi PSDM",
-            img: "/images/periode/Sacakarsa/KADIV/hanif.png",
+            img: "/images/periode/Sacakarsa/KADIV/hanif.webp",
             quote: "Semangat juang dalam prestasi",
             contact: {
                 email: "olahraga@bemfik.udinus.ac.id",
@@ -120,7 +120,7 @@ export default function BEMFIKLeadershipCarousel() {
         {
             name: "Dhilla Mazaya",
             role: "Kepala Divisi Medkref",
-            img: "/images/periode/Sacakarsa/KADIV/lala.png",
+            img: "/images/periode/Sacakarsa/KADIV/lala.webp",
             quote: "Seni sebagai ekspresi jiwa",
             contact: {
                 email: "seni@bemfik.udinus.ac.id",

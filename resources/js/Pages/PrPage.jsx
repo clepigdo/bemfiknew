@@ -23,14 +23,14 @@ export default function PrPage() {
         {
             name: "Fidela Ayu Syafira",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/dela.png",
+            image: "/images/periode/Sacakarsa/KADIV/dela.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Nailah Azfan Zarqarida",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/PR/ila.png",
+            image: "/images/periode/Sacakarsa/PR/ila.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -40,63 +40,63 @@ export default function PrPage() {
         {
             name: "Ezzat Dafanov Yunan",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PR/ezzat.png",
+            image: "/images/periode/Sacakarsa/PR/ezzat.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Rizqika Nadhifa Putri",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PR/difa.png",
+            image: "/images/periode/Sacakarsa/PR/difa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Uray Rheyca Rahmadini",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PR/uray.png",
+            image: "/images/periode/Sacakarsa/PR/uray.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Intan Dwi Jayanti",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PR/dj.png",
+            image: "/images/periode/Sacakarsa/PR/dj.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Salwa Devita Sari",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PR/salwa.png",
+            image: "/images/periode/Sacakarsa/PR/salwa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Auryn Azaria Putri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PR/aurin.png",
+            image: "/images/periode/Sacakarsa/PR/aurin.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Rachel Sifra",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PR/acel.png",
+            image: "/images/periode/Sacakarsa/PR/acel.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Sofia Chayatie",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PR/sopia.png",
+            image: "/images/periode/Sacakarsa/PR/sopia.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Sinna Zahra Raufina",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PR/sinna.png",
+            image: "/images/periode/Sacakarsa/PR/sinna.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -322,9 +322,9 @@ export default function PrPage() {
                                 >
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
 
-                                    {/* GANTI GAMBAR DENGAN FOTO TIM PR */}
+                                    {/* FOTO TIM PR */}
                                     <img
-                                        src="/images/division/pr.jpg" // Pastikan ada gambar ini
+                                        src="/images/division/pr.webp" 
                                         alt="Tim PR"
                                         onError={(e) => {
                                             e.target.src =

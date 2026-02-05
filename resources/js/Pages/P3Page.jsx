@@ -20,14 +20,14 @@ export default function P3Page() {
         {
             name: "Igdo Ragil Manuel",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/igdo.png",
+            image: "/images/periode/Sacakarsa/KADIV/igdo.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Anindita Ayu Pramesti",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/P3/anin.png",
+            image: "/images/periode/Sacakarsa/P3/anin.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -36,70 +36,70 @@ export default function P3Page() {
         {
             name: "Firnanda Rahmawati",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/P3/firnanda.png",
+            image: "/images/periode/Sacakarsa/P3/firnanda.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Rossa Queena Innaka",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/P3/oca.png",
+            image: "/images/periode/Sacakarsa/P3/oca.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Kohelet Aprillo Toka",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/P3/kohelet.png",
+            image: "/images/periode/Sacakarsa/P3/kohelet.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Prasetyo Bayu Aji Pamungkas",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/P3/bayu.png",
+            image: "/images/periode/Sacakarsa/P3/bayu.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Kanaya Kinta Safitri",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/P3/kintul.png",
+            image: "/images/periode/Sacakarsa/P3/kintul.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Binfilio Andri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/P3/andri.png",
+            image: "/images/periode/Sacakarsa/P3/andri.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Dona Sukmawati",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/P3/dona.png",
+            image: "/images/periode/Sacakarsa/P3/dona.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Sahla Nur Laili",
             role: "Anggota AKtif",
-            image: "/images/periode/Sacakarsa/P3/sahla.png",
+            image: "/images/periode/Sacakarsa/P3/sahla.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Ajeng Paramitha",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/P3/ajeng.png",
+            image: "/images/periode/Sacakarsa/P3/ajeng.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Asti Callista Andhani",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/P3/asti.png",
+            image: "/images/periode/Sacakarsa/P3/asti.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -330,7 +330,7 @@ export default function P3Page() {
 
                                     {/* GAMBAR UTAMA */}
                                     <img
-                                        src="/images/division/p3k.jpg"
+                                        src="/images/division/p3k.webp"
                                         alt="Tim P3"
                                         className="relative w-80 max-w-lg rounded-[2.5rem] shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-500 z-10 object-cover border-4 border-white/20"
                                     />

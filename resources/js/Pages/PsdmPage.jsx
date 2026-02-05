@@ -25,14 +25,14 @@ export default function PsdmPage() {
         {
             name: "Naufal Hanif",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/hanif.png",
+            image: "/images/periode/Sacakarsa/KADIV/hanif.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Clarissa Adriana",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/PSDM/clara.png",
+            image: "/images/periode/Sacakarsa/PSDM/clara.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -43,63 +43,63 @@ export default function PsdmPage() {
         {
             name: "Jelita Septiana Sinaga",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PSDM/jeje.png",
+            image: "/images/periode/Sacakarsa/PSDM/jeje.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Adelia Hermanto",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PSDM/adel.png",
+            image: "/images/periode/Sacakarsa/PSDM/adel.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Kanahaya Putri Juhara",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PSDM/naya.png",
+            image: "/images/periode/Sacakarsa/PSDM/naya.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Farras Hendi Praptama",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/PSDM/faras.png",
+            image: "/images/periode/Sacakarsa/PSDM/faras.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Delonix Regia Ofilianto",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PSDM/delonix.png",
+            image: "/images/periode/Sacakarsa/PSDM/delonix.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Vanesha Berliana",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PSDM/vanesa.png",
+            image: "/images/periode/Sacakarsa/PSDM/vanesa.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Dinda Parastyananda",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PSDM/dinda.png",
+            image: "/images/periode/Sacakarsa/PSDM/dinda.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Febry Amelia Putri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PSDM/febri.png",
+            image: "/images/periode/Sacakarsa/PSDM/febri.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Ratnasari Candra Septiani",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/PSDM/ratna.png",
+            image: "/images/periode/Sacakarsa/PSDM/ratna.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -335,7 +335,7 @@ export default function PsdmPage() {
 
                                     {/* GANTI GAMBAR DENGAN FOTO TIM PSDM */}
                                     <img
-                                        src="/images/division/psdm.jpg" // Pastikan ada gambar ini
+                                        src="/images/division/psdm.webp" 
                                         alt="Tim PSDM"
                                         onError={(e) => {
                                             e.target.src =

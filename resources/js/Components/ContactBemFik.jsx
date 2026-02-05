@@ -1,290 +1,252 @@
 import React, { useState } from "react";
+import { useForm } from "@inertiajs/react"; // 1. Import useForm
 import {
     MapPin,
-    Phone,
-    Mail,
-    Send,
     MessageCircle,
-    Sparkles,
+    Mail,
+    ArrowRight,
+    CheckCircle2,
+    Send,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactBemFik() {
-    const [formData, setFormData] = useState({
+    // 2. Setup Inertia Form (Ganti useState jadi useForm)
+    const { data, setData, post, processing, reset, errors } = useForm({
         name: "",
         email: "",
-        subject: "",
         message: "",
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    const [status, setStatus] = useState("idle");
 
+    // 3. Handle Submit yang terhubung ke Laravel
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Pesan terkirim! (Simulasi)");
-    };
+        setStatus("sending");
 
-    // Varians untuk animasi muncul satu-persatu
-    const containerVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                staggerChildren: 0.1,
+        post(route("contact.store"), {
+            preserveScroll: true,
+            onSuccess: () => {
+                setStatus("success");
+                reset(); // Bersihkan form
+                setTimeout(() => setStatus("idle"), 3000);
             },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+            onError: () => {
+                setStatus("idle");
+                alert("Gagal mengirim pesan. Periksa inputan Anda.");
+            },
+        });
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans relative overflow-hidden">
-            {/* Background Animated Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none"></div>
+        <section
+            className="relative py-20 bg-[#0B0F19] overflow-hidden font-sans"
+            id="contact"
+        >
+            {/* --- BACKGROUND ACCENTS --- */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/4 pointer-events-none"></div>
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/4 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-            {/* Main Container Card */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative bg-white w-full max-w-6xl rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col lg:flex-row z-10"
-            >
-                {/* BAGIAN KIRI: FORMULIR */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="w-full lg:w-3/5 p-8 lg:p-12"
-                >
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-16 items-start">
+                    {/* --- BAGIAN KIRI: HEADING & INFO --- */}
                     <motion.div
-                        variants={itemVariants}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-4"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="w-full lg:w-1/2"
                     >
-                        <Sparkles size={14} /> Get in Touch
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+                            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                            Let's Connect
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                            Punya Ide Liar? <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                                Mari Kolaborasi.
+                            </span>
+                        </h2>
+
+                        <p className="text-slate-400 text-lg mb-10 leading-relaxed max-w-md">
+                            Jangan ragu untuk menyapa! Entah itu tawaran
+                            kerjasama, kritik membangun, atau sekadar diskusi
+                            santai seputar teknologi.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <ContactTile
+                                icon={<Mail size={20} />}
+                                title="Email Kami"
+                                value="bemfik@dinus.ac.id"
+                                color="bg-blue-500"
+                            />
+                            <ContactTile
+                                icon={<MessageCircle size={20} />}
+                                title="WhatsApp"
+                                value="+62 812-3456-7890"
+                                color="bg-green-500"
+                            />
+                            <ContactTile
+                                icon={<MapPin size={20} />}
+                                title="Markas Besar"
+                                value="Gedung D, UDINUS"
+                                color="bg-purple-500"
+                            />
+                        </div>
                     </motion.div>
 
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-4xl font-black text-gray-800 mb-2 tracking-tight"
-                    >
-                        Hubungi Kami
-                    </motion.h2>
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-gray-500 mb-10 text-lg"
-                    >
-                        Punya pertanyaan atau ide kolaborasi? Kirimkan pesan
-                        kepada kami.
-                    </motion.p>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <motion.div variants={itemVariants}>
-                                <label className="block text-sm font-bold text-gray-700 mb-2">
-                                    Nama Lengkap
-                                </label>
-                                <motion.input
-                                    whileFocus={{ scale: 1.01 }}
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Nama Anda.."
-                                    className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300"
-                                />
-                            </motion.div>
-                            <motion.div variants={itemVariants}>
-                                <label className="block text-sm font-bold text-gray-700 mb-2">
-                                    Alamat Email
-                                </label>
-                                <motion.input
-                                    whileFocus={{ scale: 1.01 }}
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="example@mail.com"
-                                    className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300"
-                                />
-                            </motion.div>
-                        </div>
-
-                        <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-bold text-gray-700 mb-2">
-                                Subjek
-                            </label>
-                            <motion.input
-                                whileFocus={{ scale: 1.01 }}
-                                type="text"
-                                name="subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                placeholder="Judul pesan.."
-                                className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300"
-                            />
-                        </motion.div>
-
-                        <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-bold text-gray-700 mb-2">
-                                Pesan
-                            </label>
-                            <motion.textarea
-                                whileFocus={{ scale: 1.01 }}
-                                rows="4"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                placeholder="Tulis pesan Anda disini.."
-                                className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 resize-none"
-                            ></motion.textarea>
-                        </motion.div>
-
-                        <motion.button
-                            variants={itemVariants}
-                            whileHover={{
-                                scale: 1.03,
-                                boxShadow:
-                                    "0 10px 20px -10px rgba(37, 99, 235, 0.5)",
-                            }}
-                            whileTap={{ scale: 0.98 }}
-                            type="submit"
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-10 rounded-xl shadow-lg transition duration-300 w-full md:w-auto flex items-center justify-center gap-3 group"
-                        >
-                            <Send
-                                size={20}
-                                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                            />
-                            Kirim Pesan
-                        </motion.button>
-                    </form>
-                </motion.div>
-
-                {/* BAGIAN KANAN: INFORMASI */}
-                <div className="w-full lg:w-2/5 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white p-8 lg:p-12 flex flex-col justify-between relative overflow-hidden">
-                    {/* Animated Background Circles */}
+                    {/* --- BAGIAN KANAN: FORM --- */}
                     <motion.div
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.1, 0.2, 0.1],
-                        }}
-                        transition={{ duration: 8, repeat: Infinity }}
-                        className="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-blue-400 blur-3xl"
-                    ></motion.div>
-                    <motion.div
-                        animate={{
-                            scale: [1, 1.3, 1],
-                            opacity: [0.05, 0.1, 0.05],
-                        }}
-                        transition={{
-                            duration: 10,
-                            repeat: Infinity,
-                            delay: 1,
-                        }}
-                        className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-purple-500 blur-3xl"
-                    ></motion.div>
-
-                    <div className="relative z-10">
-                        <motion.h3
-                            initial={{ x: 20, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            className="text-3xl font-black mb-6"
-                        >
-                            BEM FIK UDINUS
-                        </motion.h3>
-                        <motion.p
-                            initial={{ x: 20, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-blue-100/80 leading-relaxed mb-10 text-lg italic"
-                        >
-                            "Hadir sebagai wadah bagi mahasiswa untuk
-                            berinovasi. Bersama, kita wujudkan aksi nyata yang
-                            berdampak."
-                        </motion.p>
-
-                        <div className="space-y-8">
-                            {[
-                                {
-                                    icon: Phone,
-                                    label: "Phone",
-                                    val: "+6282-0063-25524",
-                                },
-                                {
-                                    icon: Mail,
-                                    label: "Email",
-                                    val: "bemfikudinus1@gmail.com",
-                                },
-                                {
-                                    icon: MessageCircle,
-                                    label: "Whatsapp",
-                                    val: "+6282-0063-25524",
-                                },
-                                {
-                                    icon: MapPin,
-                                    label: "Office",
-                                    val: "Udinus, Gedung D1",
-                                },
-                            ].map((info, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ x: 30, opacity: 0 }}
-                                    whileInView={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: 0.2 + idx * 0.1 }}
-                                    className="flex items-center gap-5 group cursor-pointer"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="w-full lg:w-1/2"
+                    >
+                        <div className="relative p-1 rounded-3xl bg-gradient-to-br from-white/10 to-white/5">
+                            <div className="bg-[#0F1523]/80 backdrop-blur-xl rounded-[1.4rem] p-8 md:p-10 border border-white/5 shadow-2xl">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-6"
                                 >
-                                    <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-md border border-white/10 group-hover:bg-blue-500 group-hover:scale-110 transition-all duration-300">
-                                        <info.icon
-                                            size={22}
-                                            className="text-blue-300 group-hover:text-white"
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* Perbaikan: Menggunakan 'data.name' dan 'setData' */}
+                                        <InputGroup
+                                            label="Nama Kamu"
+                                            name="name"
+                                            placeholder="Siapa nama kerenmu?"
+                                            value={data.name}
+                                            onChange={(e) =>
+                                                setData("name", e.target.value)
+                                            }
+                                            error={errors.name}
+                                        />
+
+                                        <InputGroup
+                                            label="Email Kampus/Pribadi"
+                                            name="email"
+                                            type="email"
+                                            placeholder="email@contoh.com"
+                                            value={data.email}
+                                            onChange={(e) =>
+                                                setData("email", e.target.value)
+                                            }
+                                            error={errors.email}
                                         />
                                     </div>
-                                    <div>
-                                        <p className="text-xs font-bold text-blue-300 uppercase tracking-widest mb-1">
-                                            {info.label}
-                                        </p>
-                                        <p className="font-semibold text-white group-hover:text-blue-200 transition-colors">
-                                            {info.val}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
 
-                    {/* Maps with Hover Effect */}
-                    <motion.div
-                        initial={{ y: 40, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.6 }}
-                        className="relative z-10 mt-12 group"
-                    >
-                        <div className="absolute inset-0 bg-blue-500/20 blur-xl group-hover:bg-blue-500/40 transition-all"></div>
-                        <div className="relative rounded-2xl overflow-hidden border-2 border-white/10 h-44 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                            <iframe
-                                title="Map Udinus"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2260334547443!2d110.40683457591244!3d-6.982635968378824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4bc6300001%3A0x6a0a09e08170f39!2sUniversitas%20Dian%20Nuswantoro!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-                                width="100%"
-                                height="100%"
-                                style={{
-                                    border: 0,
-                                    filter: "grayscale(1) contrast(1.2) invert(0.9)",
-                                }}
-                                allowFullScreen=""
-                                loading="lazy"
-                            ></iframe>
+                                    <div>
+                                        <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                                            Ceritakan Sesuatu
+                                        </label>
+                                        <textarea
+                                            name="message"
+                                            rows="4"
+                                            value={data.message} // Ganti formData.message jadi data.message
+                                            onChange={(e) =>
+                                                setData(
+                                                    "message",
+                                                    e.target.value,
+                                                )
+                                            }
+                                            placeholder="Tulis pesan, ide, atau rahasia..."
+                                            className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 text-white placeholder-slate-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all resize-none"
+                                        ></textarea>
+                                        {errors.message && (
+                                            <p className="text-red-500 text-xs mt-1">
+                                                {errors.message}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        disabled={processing}
+                                        className={`w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group
+                                            ${
+                                                status === "success"
+                                                    ? "bg-emerald-500 text-white cursor-default"
+                                                    : "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+                                            }
+                                        `}
+                                    >
+                                        {status === "idle" && (
+                                            <>
+                                                Kirim Pesan{" "}
+                                                <ArrowRight
+                                                    size={18}
+                                                    className="group-hover:translate-x-1 transition-transform"
+                                                />
+                                            </>
+                                        )}
+                                        {status === "sending" && (
+                                            <span className="animate-pulse">
+                                                Mengirim...
+                                            </span>
+                                        )}
+                                        {status === "success" && (
+                                            <>
+                                                Terkirim!{" "}
+                                                <CheckCircle2 size={18} />
+                                            </>
+                                        )}
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
-            </motion.div>
+            </div>
+        </section>
+    );
+}
+
+// --- SUB-KOMPONEN ---
+
+function ContactTile({ icon, title, value, color }) {
+    return (
+        <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all group cursor-default">
+            <div
+                className={`w-10 h-10 rounded-xl ${color} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300`}
+            >
+                {icon}
+            </div>
+            <div>
+                <h4 className="text-xs font-bold text-slate-400 uppercase">
+                    {title}
+                </h4>
+                <p className="text-sm font-semibold text-white">{value}</p>
+            </div>
+        </div>
+    );
+}
+
+// Saya update InputGroup agar support error message
+function InputGroup({
+    label,
+    name,
+    type = "text",
+    placeholder,
+    value,
+    onChange,
+    error,
+}) {
+    return (
+        <div>
+            <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                {label}
+            </label>
+            <input
+                type={type}
+                name={name}
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+                className={`w-full px-4 py-3 rounded-xl bg-black/20 border text-white placeholder-slate-600 outline-none transition-all ${error ? "border-red-500 focus:border-red-500" : "border-white/10 focus:border-blue-500"}`}
+            />
+            {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
         </div>
     );
 }

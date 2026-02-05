@@ -15,11 +15,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        //member
+        \App\Models\Member::create([
+            'name' => 'Igdo Ragil',
+            'position' => 'Ketua BEM',
+            'division' => 'BPH',
+            'status' => 'aktif'
+        ]);
+
+        \App\Models\Member::create([
+            'name' => 'Fulanah',
+            'position' => 'Sekretaris',
+            'division' => 'BPH',
+            'status' => 'aktif'
+        ]);
+
+        // proker
+        \App\Models\Program::create([
+            'title' => 'LKMM-TD',
+            'description' => 'Latihan Kepemimpinan Tingkat Dasar',
+            'slug' => 'lkmm-td',
+            'status' => 'terlaksana'
+        ]);
+
+        \App\Models\Program::create([
+            'title' => 'FIX CUP',
+            'description' => 'Kompetisi Olahraga Futsal',
+            'slug' => 'fix-cup',
+            'status' => 'berjalan'
+        ]);
+    
+        \App\Models\Program::create([
+            'title' => 'PCP',
+            'description' => 'Pembekalan Calon Pengurus',
+            'slug' => 'pcp',
+            'status' => 'belum'
         ]);
     }
 }

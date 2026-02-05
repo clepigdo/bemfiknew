@@ -24,14 +24,14 @@ export default function MedkrefPage() {
         {
             name: "Dhilla Mazaya",
             role: "Kepala Divisi",
-            image: "/images/periode/Sacakarsa/KADIV/lala.png",
+            image: "/images/periode/Sacakarsa/KADIV/lala.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Laily Muthia Nabilmanan",
             role: "Sekretaris",
-            image: "/images/periode/Sacakarsa/MEDKREF/laili.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/laili.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -42,77 +42,77 @@ export default function MedkrefPage() {
         {
             name: "Danang Ade Hidayat",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MEDKREF/danang.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/danang.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Sultan Sahrul Abdullah",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MEDKREF/sultan.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/sultan.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Sulaksana Himawan Saputra",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MEDKREF/sulak.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/sulak.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Candra Wijayanto",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MEDKREF/candra.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/candra.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Laurensius Gilang",
             role: "Staff Ahli",
-            image: "/images/periode/Sacakarsa/MEDKREF/gilang.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/gilang.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Syaifurrizal",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/ipur.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/ipur.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Louise Mendy Pujianto",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/lois.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/lois.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Yolanda Adelia Rizki",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/yolanda.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/yolanda.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Farda Syarif Mubarok",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/farda.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/farda.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Nakeisya Adhinda Putri",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/nake.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/nake.webp",
             instagram: "#",
             linkedin: "#",
         },
         {
             name: "Farid Fadlian Pratama",
             role: "Anggota Aktif",
-            image: "/images/periode/Sacakarsa/MEDKREF/fadil.png",
+            image: "/images/periode/Sacakarsa/MEDKREF/fadil.webp",
             instagram: "#",
             linkedin: "#",
         },
@@ -327,7 +327,7 @@ export default function MedkrefPage() {
                                 >
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
                                     <img
-                                        src="/images/division/medkref.jpg"
+                                        src="/images/division/medkref.webp"
                                         alt="Tim Medkref"
                                         onError={(e) => {
                                             e.target.src =
