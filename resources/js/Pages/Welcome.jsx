@@ -21,6 +21,9 @@ import { ParallaxSeparator } from "@/Components/ParallaxSeparator";
 import { LampDemo } from "@/Components/ui/lamp";
 import { VideoProfileSection } from "@/Components/VideoProfileSection";
 import Footer from "@/Components/Footer";
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default function Welcome({ auth, programs }) {
     const [scrolled, setScrolled] = useState(false);
@@ -100,6 +103,24 @@ export default function Welcome({ auth, programs }) {
 
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isMounted, setIsMounted] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navLinks = [
+        { name: "Beranda", href: "/" },
+        { name: "Tentang", href: "/#tentang" },
+        { name: "Periode", href: "/#periode" },
+        { name: "Divisi", href: "/#divisi" },
+        { name: "Event", href: "/#event" },
+        { name: "Kontak", href: "/#kontak" },
+        { name: "Artikel", href: "/artikel" },
+    ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         setIsMounted(true); // Trigger animasi masuk
@@ -122,7 +143,7 @@ export default function Welcome({ auth, programs }) {
             {/* --- NAVBAR --- */}
             <nav
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-                    scrolled
+                    scrolled || isMobileMenuOpen // Tambah isMobileMenuOpen biar background gelap pas menu dibuka
                         ? "bg-[#0a0f2c]/95 shadow-lg shadow-[#323EDD]/10 py-3 backdrop-blur-md border-b border-[#323EDD]/30"
                         : "bg-transparent py-5"
                 }`}
@@ -145,34 +166,47 @@ export default function Welcome({ auth, programs }) {
                         </div>
                     </Link>
 
-                    {/* DESKTOP MENU LINKS */}
+                    {/* DESKTOP MENU LINKS (Hidden di Mobile) */}
                     <div className="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-wide text-white/90">
-                        {[
-                            { name: "Beranda", href: "/" },
-                            { name: "Tentang", href: "/#tentang" },
-                            { name: "Periode", href: "/#periode" },
-                            { name: "Divisi", href: "/#divisi" },
-                            { name: "Event", href: "/#event" },
-                            { name: "Kontak", href: "/#kontak" },
-                            { name: "Artikel", href: "/artikel" },
-                        ].map((item, index) => (
+                        {navLinks.map((item, index) => (
                             <Link
                                 key={index}
                                 href={item.href}
                                 className="relative group hover:text-[#FBDF07] transition-colors duration-300"
                             >
                                 {item.name}
-                                {/* Animated Underline (Kuning) */}
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#FBDF07] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         ))}
                     </div>
 
-                    {/* MOBILE MENU BUTTON */}
-                    <button className="md:hidden text-2xl focus:outline-none text-white hover:text-[#FBDF07] transition-colors">
-                        ☰
+                    {/* MOBILE MENU BUTTON (Visible di Mobile) */}
+                    <button
+                        // 3. Tambahkan onClick untuk mengubah state
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden text-2xl focus:outline-none text-white hover:text-[#FBDF07] transition-colors"
+                    >
+                        {/* Ubah ikon jadi X kalau menu terbuka */}
+                        {isMobileMenuOpen ? "✕" : "☰"}
                     </button>
                 </div>
+
+                {/* 4. TAMPILAN MENU MOBILE (DROPDOWN) */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden absolute top-full left-0 w-full bg-[#0a0f2c] border-b border-[#323EDD]/30 shadow-xl flex flex-col items-center py-6 space-y-4 animate-in slide-in-from-top-5 duration-300">
+                        {navLinks.map((item, index) => (
+                            <Link
+                                key={index}
+                                href={item.href}
+                                // Tutup menu saat link diklik
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="text-white font-bold uppercase tracking-wider hover:text-[#FBDF07] transition-colors duration-300 text-sm"
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                    </div>
+                )}
             </nav>
 
             {/* --- HERO SECTION START --- */}
@@ -445,6 +479,7 @@ export default function Welcome({ auth, programs }) {
                             ))}
                         </div>
                     </div>
+                    
                     <div className="container mx-auto">
                         <DivisiCarousel />
                     </div>

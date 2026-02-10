@@ -56,23 +56,6 @@ export default function Footer() {
                             Harmoni dalam aksi nyata.
                         </p>
 
-                        {/* Newsletter Input */}
-                        <div className="pt-2">
-                            <p className="text-xs font-bold text-gray-300 mb-2 uppercase tracking-wider">
-                                Dapatkan Info Terbaru
-                            </p>
-                            <div className="flex items-center bg-white/5 border border-white/10 rounded-lg overflow-hidden focus-within:border-blue-500 transition-colors">
-                                <input
-                                    type="email"
-                                    placeholder="Email kampus..."
-                                    className="bg-transparent border-none text-sm text-white px-4 py-2 w-full focus:ring-0 outline-none placeholder-gray-600"
-                                />
-                                <button className="p-2 bg-blue-600 hover:bg-blue-700 text-white transition-colors">
-                                    <Send size={16} />
-                                </button>
-                            </div>
-                        </div>
-
                         {/* Social Media Links */}
                         <div className="flex gap-4 pt-2">
                             <SocialButton

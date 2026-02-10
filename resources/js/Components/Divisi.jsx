@@ -104,8 +104,8 @@ export function DivisiCarousel() {
                 </CarouselContent>
 
                 {/* UBAH 4: Tombol Navigasi Dark Mode */}
-                <CarouselPrevious className="hidden md:flex h-14 w-14 bg-white/10 hover:bg-blue-600 text-white border border-white/20 backdrop-blur-md -left-4 lg:-left-16" />
-                <CarouselNext className="hidden md:flex h-14 w-14 bg-white/10 hover:bg-blue-600 text-white border border-white/20 backdrop-blur-md -right-4 lg:-right-16" />
+                <CarouselPrevious className=" md:flex h-14 w-14 bg-white/10 hover:bg-blue-600 text-white border border-white/20 backdrop-blur-md -left-4 lg:-left-16" />
+                <CarouselNext className=" md:flex h-14 w-14 bg-white/10 hover:bg-blue-600 text-white border border-white/20 backdrop-blur-md -right-4 lg:-right-16" />
             </Carousel>
         </div>
     );
