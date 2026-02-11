@@ -60,15 +60,15 @@ export default function Footer() {
                         <div className="flex gap-4 pt-2">
                             <SocialButton
                                 icon={<Instagram size={18} />}
-                                href="https://instagram.com/bemfikudinus"
+                                href="https://www.instagram.com/bemfikudinus/?hl=id"
                             />
                             <SocialButton
                                 icon={<Youtube size={18} />}
-                                href="https://youtube.com"
+                                href="https://www.youtube.com/@bem-fikudinus2721"
                             />
                             <SocialButton
                                 icon={<Linkedin size={18} />}
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/company/bem-fik-udinus/posts/?feedView=all"
                             />
                         </div>
                     </div>
@@ -153,7 +153,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-blue-500 shrink-0" />
-                                <span>+6282-0063-25524(BEMO)</span>
+                                <span>+62 882-0063-25524 (Bemo Admin)</span>
                             </li>
                         </ul>
                     </div>
@@ -165,10 +165,10 @@ export default function Footer() {
                         <p>© 2025 BEM FIK UDINUS.</p>
                         <div className="flex gap-4">
                             <a href="#" className="hover:text-gray-300">
-                                Privacy Policy
+                                BEM FIK UDINUS
                             </a>
                             <a href="#" className="hover:text-gray-300">
-                                Terms of Service
+                                KABINET SACAKARSA
                             </a>
                         </div>
                     </div>
@@ -219,7 +219,6 @@ export default function Footer() {
     );
 }
 
-// Komponen Helper untuk Link Biasa
 function FooterLink({ href, text }) {
     return (
         <li>
@@ -232,8 +231,6 @@ function FooterLink({ href, text }) {
         </li>
     );
 }
-
-// Komponen Helper untuk Link Departemen (Agar rapi)
 function DepartmentLink({ href, text }) {
     return (
         <li>

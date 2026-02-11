@@ -22,14 +22,12 @@ export default function Login({ status, canResetPassword }) {
         <div className="min-h-screen flex bg-[#0B0F19] text-white font-sans overflow-hidden selection:bg-indigo-500 selection:text-white">
             <Head title="Log in Administrator" />
 
-            {/* --- BAGIAN KIRI: FORM LOGIN --- */}
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="w-full lg:w-1/2 flex flex-col justify-center p-8 md:p-16 relative z-10"
             >
-                {/* Back to Home */}
                 <Link
                     href="/"
                     className="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group"
@@ -41,7 +39,6 @@ export default function Login({ status, canResetPassword }) {
                 </Link>
 
                 <div className="max-w-md w-full mx-auto">
-                    {/* Header */}
                     <div className="mb-10">
                         <div className="flex items-center gap-2 mb-4">
                             <span className="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
@@ -97,7 +94,6 @@ export default function Login({ status, canResetPassword }) {
                             )}
                         </div>
 
-                        {/* Password Input */}
                         <div className="space-y-2">
                             <label className="text-sm font-semibold text-slate-300 ml-1">
                                 Password
@@ -126,7 +122,6 @@ export default function Login({ status, canResetPassword }) {
                             )}
                         </div>
 
-                        {/* Remember & Forgot */}
                         <div className="flex items-center justify-between">
                             <label className="flex items-center gap-2 cursor-pointer group">
                                 <div className="relative flex items-center">
@@ -174,7 +169,6 @@ export default function Login({ status, canResetPassword }) {
                             )}
                         </div>
 
-                        {/* Submit Button */}
                         <button
                             disabled={processing}
                             className="group relative w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden"
@@ -192,7 +186,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             </motion.div>
 
-            {/* --- VISUAL (GAMBAR) --- */}
+
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -201,7 +195,7 @@ export default function Login({ status, canResetPassword }) {
             >
                 <div className="relative w-full h-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                     <img
-                        src="/images/seruan.jpeg"
+                        src="/images/seruan.webp"
                         alt="BEM FIK Background"
                         className="absolute inset-0 w-full h-full object-cover"
                     />

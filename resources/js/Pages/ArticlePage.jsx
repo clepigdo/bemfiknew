@@ -18,7 +18,6 @@ import { motion } from "framer-motion";
 import { router } from "@inertiajs/react";
 import debounce from "lodash/debounce";
 
-
 export default function ArticlePage({ articles, featuredArticle, filters }) {
     const [activeCategory, setActiveCategory] = useState("Semua");
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -247,31 +246,39 @@ export default function ArticlePage({ articles, featuredArticle, filters }) {
 
                     {/* --- CATEGORY TABS --- */}
                     <div className="sticky top-24 z-30 mb-12 py-4">
-                        <div className="flex justify-start md:justify-center overflow-x-auto hide-scrollbar gap-2 p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full w-max max-w-full mx-auto shadow-xl shadow-black/20">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => setActiveCategory(cat)}
-                                    className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors duration-300 z-10 ${
-                                        activeCategory === cat
-                                            ? "text-white"
-                                            : "text-slate-400 hover:text-white"
-                                    }`}
-                                >
-                                    {activeCategory === cat && (
-                                        <motion.div
-                                            layoutId="activeTab"
-                                            className="absolute inset-0 bg-indigo-600 rounded-full shadow-lg shadow-indigo-600/40"
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 300,
-                                                damping: 30,
-                                            }}
-                                        />
-                                    )}
-                                    <span className="relative z-10">{cat}</span>
-                                </button>
-                            ))}
+                        <div className="container mx-auto px-4 md:px-0 max-w-3xl">
+                            <div className="bg-[#131926]/90 backdrop-blur-xl border border-white/10 p-1.5 rounded-full shadow-xl shadow-black/20 overflow-hidden">
+                                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar px-1 w-full">
+                                    {categories.map((cat) => (
+                                        <button
+                                            key={cat}
+                                            onClick={() =>
+                                                setActiveCategory(cat)
+                                            }
+                                            className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
+                                                activeCategory === cat
+                                                    ? "text-white"
+                                                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                                            }`}
+                                        >
+                                            {activeCategory === cat && (
+                                                <motion.div
+                                                    layoutId="activeTab"
+                                                    className="absolute inset-0 bg-indigo-600 rounded-full shadow-lg shadow-indigo-600/40"
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 300,
+                                                        damping: 30,
+                                                    }}
+                                                />
+                                            )}
+                                            <span className="relative z-10">
+                                                {cat}
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -401,48 +408,6 @@ export default function ArticlePage({ articles, featuredArticle, filters }) {
                             ))}
                         </div>
                     )}
-
-                    {/* --- NEWSLETTER SECTION --- */}
-                    <div className="mt-32 relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-indigo-900 to-slate-900 border border-white/10 p-8 md:p-20 text-center shadow-2xl">
-                        {/* Decorative Background */}
-                        <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                        <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500 rounded-full blur-[100px] opacity-40"></div>
-                        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-40"></div>
-
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl mb-8 shadow-inner shadow-white/10">
-                                <Sparkles
-                                    size={32}
-                                    className="text-yellow-400"
-                                />
-                            </div>
-
-                            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                                Ada Kepikiran Berita Hangat dan Bermanfaat??{" "}
-                                <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">
-                                    Silahkan isi di bawah ini ya!
-                                </span>
-                            </h2>
-
-                            <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-                                Dapatkan ringkasan berita terpanas, info
-                                beasiswa, dan event seru FIK UDINUS langsung di
-                                emailmu.
-                            </p>
-
-                            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                                <input
-                                    type="email"
-                                    placeholder="Masukkan email kampus..."
-                                    className="flex-1 h-14 pl-6 rounded-2xl bg-[#0B0F19]/50 border border-white/20 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-[#0B0F19]/80 transition-all"
-                                />
-                                <button className="h-14 px-8 rounded-2xl bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors shadow-lg shadow-white/10">
-                                    Kirim
-                                </button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </main>
 

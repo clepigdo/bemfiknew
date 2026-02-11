@@ -4,6 +4,7 @@ import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { Calendar, User, ArrowLeft, Share2, Tag, Hash } from "lucide-react";
 import { motion } from "framer-motion";
+import ShareButton from "@/Components/ShareButton";
 
 export default function ArticleDetail({ article }) {
     if (!article) {
@@ -156,15 +157,9 @@ export default function ArticleDetail({ article }) {
                             <Hash size={14} className="text-indigo-500" />
                             <span>{article.category?.name}</span>
                         </div>
-
-                        <button className="group relative px-8 py-4 rounded-2xl bg-white text-slate-950 font-black text-sm uppercase tracking-widest overflow-hidden transition-all hover:pr-12">
-                            <span className="relative z-10 flex items-center gap-2">
-                                <Share2 size={18} /> Bagikan Cerita
-                            </span>
-                            <div className="absolute top-1/2 -translate-y-1/2 right-4 opacity-0 group-hover:opacity-100 transition-all">
-                                <ArrowLeft className="rotate-180" size={16} />
-                            </div>
-                        </button>
+                        <ShareButton
+                            title={article.title}
+                        />
                     </footer>
                 </article>
             </main>

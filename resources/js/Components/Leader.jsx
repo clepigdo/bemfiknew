@@ -34,7 +34,7 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Rico Fernandez",
+            name: "Muhammad Rico Shahada",
             role: "Sekretaris Umum 1",
             img: "/images/periode/Sacakarsa/BPH/rico.webp",
             quote: "Mengorganisir dengan presisi",
@@ -44,7 +44,7 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Ailsa Najwa Sopo",
+            name: "Ailsa Najwa Insyira",
             role: "Sekretaris Umum 2",
             img: "/images/periode/Sacakarsa/BPH/caca.webp",
             quote: "Mengelola dengan transparansi",
@@ -54,7 +54,7 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Sarah Fatimatul Sopo",
+            name: "Sarah Fatimatuz Zahra",
             role: "Bendahara Umum",
             img: "/images/periode/Sacakarsa/BPH/sarah.webp",
             quote: "Mengelola dengan transparansi",
@@ -108,7 +108,7 @@ export default function BEMFIKLeadershipCarousel() {
             },
         },
         {
-            name: "Naufal Hanif",
+            name: "Naufal Hanif Noorvietriya",
             role: "Kepala Divisi PSDM",
             img: "/images/periode/Sacakarsa/KADIV/hanif.webp",
             quote: "Semangat juang dalam prestasi",
@@ -129,12 +129,11 @@ export default function BEMFIKLeadershipCarousel() {
         },
     ];
 
-    // --- LOGIKA PERPINDAHAN KATEGORI ---
     const handleCategoryChange = (category) => {
         if (activeCategory === category) return;
         setIsAnimating(true);
         setActiveCategory(category);
-        setTimeout(() => setIsAnimating(false), 500); // Reset state animasi
+        setTimeout(() => setIsAnimating(false), 500); 
     };
     
     const rawData = activeCategory === "bph" ? dataBPH : dataKadiv;
@@ -148,7 +147,6 @@ export default function BEMFIKLeadershipCarousel() {
 
     return (
         <div className="min-h-screen bg-white py-24">
-            {/* Style Animasi Fade In Up */}
             <style>{`
                 @keyframes fadeInUp {
                     from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
@@ -162,10 +160,7 @@ export default function BEMFIKLeadershipCarousel() {
             <div className="container mx-auto px-4 md:px-12 max-w-7xl">
                 {/* Header Section */}
                 <div className="relative text-center mb-16 group">
-                    {/* 1. Background Glow Effect (Subtle) */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200/30 rounded-full blur-[80px] -z-10 group-hover:bg-indigo-200/40 transition-colors duration-700"></div>
-
-                    {/* 2. Badge Kecil dengan Ikon */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -178,8 +173,6 @@ export default function BEMFIKLeadershipCarousel() {
                             Meet Our Leaders
                         </span>
                     </motion.div>
-
-                    {/* 3. Judul Utama dengan Gradient Text */}
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -192,8 +185,6 @@ export default function BEMFIKLeadershipCarousel() {
                             Sacakarsa
                         </span>
                     </motion.h2>
-
-                    {/* 4. Sub-Judul Periode */}
                     <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -203,8 +194,6 @@ export default function BEMFIKLeadershipCarousel() {
                     >
                         PERIODE 2025/2026
                     </motion.h3>
-
-                    {/* 5. Divider Interaktif (Memanjang saat Hover) */}
                     <div className="flex justify-center items-center gap-2">
                         <motion.div
                             initial={{ width: 0 }}
@@ -215,8 +204,8 @@ export default function BEMFIKLeadershipCarousel() {
 
                         <motion.div
                             initial={{ width: 0 }}
-                            whileInView={{ width: "6rem" }} // Lebar awal saat tampil
-                            whileHover={{ width: "12rem" }} // Lebar saat di-hover (Interaktif)
+                            whileInView={{ width: "6rem" }} 
+                            whileHover={{ width: "12rem" }} 
                             transition={{
                                 type: "spring",
                                 stiffness: 300,
@@ -234,7 +223,6 @@ export default function BEMFIKLeadershipCarousel() {
                     </div>
                 </div>
 
-                {/* Toggle Buttons */}
                 <div className="flex justify-center gap-4 mb-16">
                     <button
                         onClick={() => handleCategoryChange("bph")}
@@ -258,21 +246,16 @@ export default function BEMFIKLeadershipCarousel() {
                     </button>
                 </div>
 
-                {/* --- CAROUSEL CONTAINER DENGAN ANIMASI --- */}
-                {/* KEY PENTING: key={activeCategory} memaksa react merender ulang div ini saat kategori berubah */}
                 <div
                     key={activeCategory}
                     className="relative px-0 md:px-4 animate-fade-in-up"
                 >
-                    {/* BUTTONS NAVIGATION */}
                     <div className="swiper-button-prev-custom absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-30 bg-white text-blue-900 p-3 rounded-full shadow-lg hover:bg-blue-900 hover:text-white transition-all cursor-pointer border border-blue-50">
                         <ChevronLeft className="w-6 h-6" />
                     </div>
                     <div className="swiper-button-next-custom absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-30 bg-white text-blue-900 p-3 rounded-full shadow-lg hover:bg-blue-900 hover:text-white transition-all cursor-pointer border border-blue-50">
                         <ChevronRight className="w-6 h-6" />
                     </div>
-
-                    {/* Gradient Masking */}
                     <div className="absolute top-0 bottom-0 left-0 w-8 md:w-24 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
                     <div className="absolute top-0 bottom-0 right-0 w-8 md:w-24 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
 
@@ -282,7 +265,6 @@ export default function BEMFIKLeadershipCarousel() {
                         grabCursor={true}
                         centeredSlides={true}
                         loop={true}
-                        // Konfigurasi Responsif
                         breakpoints={{
                             0: { slidesPerView: 1.25 },
                             768: { slidesPerView: 2 },
@@ -310,26 +292,18 @@ export default function BEMFIKLeadershipCarousel() {
                     >
                         {finalData.map((leader, index) => (
                             <SwiperSlide key={index}>
-                                {/* CARD ITEM */}
                                 <div className="relative h-[480px] w-full rounded-[2.5rem] overflow-hidden group cursor-pointer shadow-2xl transition-all duration-500 bg-white border border-gray-100">
-                                    {/* Badge */}
                                     <div className="absolute top-5 right-5 z-20 bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">
                                         {activeCategory === "bph"
                                             ? "CORE LEADER"
                                             : "HEAD DIVISION"}
                                     </div>
-
-                                    {/* Gambar */}
                                     <img
                                         src={leader.img}
                                         alt={leader.name}
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-
-                                    {/* Gradient Gelap */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
-
-                                    {/* Konten Teks */}
                                     <div className="absolute inset-0 flex flex-col justify-end p-6 text-center">
                                         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                             <h3 className="text-xl md:text-2xl font-bold text-white mb-1 leading-tight">
@@ -339,8 +313,6 @@ export default function BEMFIKLeadershipCarousel() {
                                             <p className="text-yellow-400 font-bold text-xs tracking-widest uppercase mb-4">
                                                 {leader.role}
                                             </p>
-
-                                            {/* Quote */}
                                             <div className="relative mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75 hidden lg:block">
                                                 <Quote
                                                     size={14}
@@ -350,8 +322,6 @@ export default function BEMFIKLeadershipCarousel() {
                                                     "{leader.quote}"
                                                 </p>
                                             </div>
-
-                                            {/* Sosmed */}
                                             <div className="flex justify-center gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150">
                                                 <a
                                                     href={`mailto:${leader.contact.email}`}

@@ -288,8 +288,18 @@ export default function PsdmPage() {
                                     keterampilan manajerial yang unggul.
                                 </p>
 
-                                <button className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                    Gabung Bersama Kami
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        document
+                                            .getElementById("lihat-proker")
+                                            ?.scrollIntoView({
+                                                behavior: "smooth",
+                                            });
+                                    }}
+                                    className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                                >
+                                    Lihat Proker
                                     <ArrowRight
                                         className="group-hover:translate-x-1 transition-transform"
                                         size={20}
@@ -335,7 +345,7 @@ export default function PsdmPage() {
 
                                     {/* GANTI GAMBAR DENGAN FOTO TIM PSDM */}
                                     <img
-                                        src="/images/division/psdm.webp" 
+                                        src="/images/division/psdm.webp"
                                         alt="Tim PSDM"
                                         onError={(e) => {
                                             e.target.src =
@@ -583,8 +593,8 @@ export default function PsdmPage() {
                         </motion.div>
                     </div>
 
-                    {/* --- PROGRAM UNGGULAN (ANIMATED) --- */}
-                    <div className="mb-24 overflow-hidden">
+                    {/* --- PROGRAM UNGGULAN --- */}
+                    <div id="lihat-proker" className="mb-24 overflow-hidden">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
@@ -764,13 +774,18 @@ export default function PsdmPage() {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                                    <a
+                                        href="https://wa.me/62882006325524"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"
+                                    >
                                         Hubungi Kami
                                         <ArrowRight
                                             className="group-hover:translate-x-1 transition-transform"
                                             size={20}
                                         />
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
 

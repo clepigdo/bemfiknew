@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "@inertiajs/react"; // 1. Import useForm
+import { useForm } from "@inertiajs/react";
 import {
     MapPin,
     MessageCircle,
@@ -11,7 +11,6 @@ import {
 import { motion } from "framer-motion";
 
 export default function ContactBemFik() {
-    // 2. Setup Inertia Form (Ganti useState jadi useForm)
     const { data, setData, post, processing, reset, errors } = useForm({
         name: "",
         email: "",
@@ -20,7 +19,6 @@ export default function ContactBemFik() {
 
     const [status, setStatus] = useState("idle");
 
-    // 3. Handle Submit yang terhubung ke Laravel
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus("sending");
@@ -29,6 +27,17 @@ export default function ContactBemFik() {
             preserveScroll: true,
             onSuccess: () => {
                 setStatus("success");
+                const phoneNumber = "62882006325524";
+                const textMessage =
+                    `Halo Admin BEM FIK! 👋%0A%0A` +
+                    `Saya baru saja mengisi form di website.%0A` +
+                    `*Nama:* ${data.name}%0A` +
+                    `*Email:* ${data.email}%0A` +
+                    `*Pesan:* ${data.message}`;
+                window.open(
+                    `https://wa.me/${phoneNumber}?text=${textMessage}`,
+                    "_blank",
+                );
                 reset(); // Bersihkan form
                 setTimeout(() => setStatus("idle"), 3000);
             },
@@ -80,13 +89,13 @@ export default function ContactBemFik() {
                             <ContactTile
                                 icon={<Mail size={20} />}
                                 title="Email Kami"
-                                value="bemfik@dinus.ac.id"
+                                value="bemfikudinus1@gmail.com"
                                 color="bg-blue-500"
                             />
                             <ContactTile
                                 icon={<MessageCircle size={20} />}
                                 title="WhatsApp"
-                                value="+62 812-3456-7890"
+                                value="+62 882-0063-25524 (Bemo Admin)"
                                 color="bg-green-500"
                             />
                             <ContactTile
@@ -144,7 +153,7 @@ export default function ContactBemFik() {
                                         <textarea
                                             name="message"
                                             rows="4"
-                                            value={data.message} // Ganti formData.message jadi data.message
+                                            value={data.message}
                                             onChange={(e) =>
                                                 setData(
                                                     "message",

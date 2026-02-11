@@ -18,7 +18,6 @@ export default function ArticleIndex({ articles }) {
                 <Head title="Kelola Artikel" />
 
                 <main className="pt-32 pb-20 container mx-auto px-6 md:px-12">
-                    {/* --- HEADER PAGE --- */}
                     <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-10">
                         <div>
                             <div className="flex items-center gap-2 mb-2">
@@ -38,7 +37,6 @@ export default function ArticleIndex({ articles }) {
                             </p>
                         </div>
 
-                        {/* Tombol Tambah Baru */}
                         <Link
                             href={route("articles.create")}
                             className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1"
@@ -48,7 +46,6 @@ export default function ArticleIndex({ articles }) {
                         </Link>
                     </div>
 
-                    {/* --- NOTIFIKASI SUKSES --- */}
                     {flash?.success && (
                         <div className="mb-8 p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-xl font-medium flex items-center gap-3 animate-pulse">
                             <span className="bg-green-500 text-black rounded-full p-1">
@@ -58,7 +55,6 @@ export default function ArticleIndex({ articles }) {
                         </div>
                     )}
 
-                    {/* --- TABEL ARTIKEL --- */}
                     <div className="bg-[#131926] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
@@ -79,7 +75,6 @@ export default function ArticleIndex({ articles }) {
                                             key={article.id}
                                             className="hover:bg-white/[0.02] transition-colors group"
                                         >
-                                            {/* Kolom Gambar */}
                                             <td className="p-6">
                                                 <div className="w-24 h-16 rounded-lg overflow-hidden bg-slate-800 border border-white/10 relative">
                                                     {article.image ? (
@@ -95,8 +90,6 @@ export default function ArticleIndex({ articles }) {
                                                     )}
                                                 </div>
                                             </td>
-
-                                            {/* Kolom Judul */}
                                             <td className="p-6 max-w-md">
                                                 <h3 className="font-bold text-white mb-1 truncate text-lg group-hover:text-blue-400 transition-colors">
                                                     {article.title}
@@ -109,16 +102,12 @@ export default function ArticleIndex({ articles }) {
                                                     {article.published_at}
                                                 </div>
                                             </td>
-
-                                            {/* Kolom Kategori */}
                                             <td className="p-6">
                                                 <span className="px-3 py-1 rounded-lg text-xs font-bold bg-white/5 text-slate-300 border border-white/10">
                                                     {article.category?.name ||
                                                         "Uncategorized"}
                                                 </span>
                                             </td>
-
-                                            {/* Kolom Penulis */}
                                             <td className="p-6">
                                                 <div className="flex items-center gap-2">
                                                     <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-[10px] font-bold">
@@ -131,8 +120,6 @@ export default function ArticleIndex({ articles }) {
                                                     </span>
                                                 </div>
                                             </td>
-
-                                            {/* Kolom Aksi */}
                                             <td className="p-6">
                                                 <div className="flex items-center justify-end gap-2">
                                                     <Link
@@ -176,8 +163,7 @@ export default function ArticleIndex({ articles }) {
                                             </td>
                                         </tr>
                                     ))}
-
-                                    {/* State Kosong */}
+                                    
                                     {articles.data.length === 0 && (
                                         <tr>
                                             <td

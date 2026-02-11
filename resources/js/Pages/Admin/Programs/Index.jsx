@@ -15,7 +15,7 @@ export default function ProgramIndex({ programs }) {
     return (
         <AdminLayout title="Kelola Program Kerja">
             <div className="min-h-screen bg-slate-900 text-white font-sans">
-                <Head title="Program Kerja" />
+                <Head title="Program Kerja RKT" />
 
                 {/* 2. KONTEN UTAMA (Diberi padding atas pt-32 agar tidak tertutup Navbar) */}
                 <main className="pt-32 pb-20 container mx-auto px-6 md:px-12">
@@ -23,7 +23,7 @@ export default function ProgramIndex({ programs }) {
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                         <div>
                             <h1 className="text-3xl font-black mb-2">
-                                Program Kerja
+                                Program Kerja RKT
                             </h1>
                             <p className="text-slate-400">
                                 Kelola agenda dan kegiatan BEM FIK.

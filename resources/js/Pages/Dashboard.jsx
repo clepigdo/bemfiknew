@@ -80,7 +80,7 @@ export default function Dashboard({ auth, stats }) {
                             trendColor={stats.pengurus.trend_color}
                         />
                         <StatCard
-                            title="Program Kerja"
+                            title="Program Kerja RKT"
                             value={stats.proker.total}
                             icon={<LayoutDashboard size={24} />}
                             color="text-emerald-400"

@@ -208,7 +208,7 @@ export default function P3Page() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2, // Jeda waktu antar elemen (0.2 detik)
+                staggerChildren: 0.2,
             },
         },
     };
@@ -243,11 +243,10 @@ export default function P3Page() {
 
                         {/* --- KONTEN TENGAH --- */}
                         <div className="container mx-auto px-6 md:px-12 relative z-10 py-24 md:py-32 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-                            {/* 1. BAGIAN KIRI (TEKS) - Slide dari Kiri ke Kanan */}
                             <motion.div
-                                initial={{ opacity: 0, x: -100 }} // Awal: Transparan & Geser ke Kiri 100px
-                                whileInView={{ opacity: 1, x: 0 }} // Masuk: Muncul & Balik ke posisi 0
-                                transition={{ duration: 0.8, ease: "easeOut" }} // Durasi animasi
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, ease: "easeOut" }}
                                 viewport={{ once: false }}
                                 className="md:w-1/2 flex flex-col items-start"
                             >
@@ -282,8 +281,18 @@ export default function P3Page() {
                                     dan berjiwa ilmiah.
                                 </p>
 
-                                <button className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                    Jelajahi Program
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        document
+                                            .getElementById("program-kerja")
+                                            ?.scrollIntoView({
+                                                behavior: "smooth",
+                                            });
+                                    }}
+                                    className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                                >
+                                    Jelajahi Proker
                                     <ArrowRight
                                         className="group-hover:translate-x-1 transition-transform"
                                         size={20}
@@ -315,9 +324,9 @@ export default function P3Page() {
                                     className="absolute inset-0 w-full h-full bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-[60px] -z-10"
                                 ></motion.div>
 
-                                {/* --- B. WRAPPER GAMBAR UTAMA (FLOATING EFFECT) --- */}
+                                {/* --- B. WRAPPER GAMBAR UTAMA --- */}
                                 <motion.div
-                                    animate={{ y: [-15, 15, -15] }} // Gerakan naik turun (Levitasi)
+                                    animate={{ y: [-15, 15, -15] }}
                                     transition={{
                                         duration: 6,
                                         repeat: Infinity,
@@ -325,7 +334,6 @@ export default function P3Page() {
                                     }}
                                     className="relative group"
                                 >
-                                    {/* Border/Frame Dekoratif di belakang */}
                                     <div className="absolute inset-0 bg-white/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -rotate-6 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 border border-white/20"></div>
 
                                     {/* GAMBAR UTAMA */}
@@ -335,8 +343,6 @@ export default function P3Page() {
                                         className="relative w-80 max-w-lg rounded-[2.5rem] shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-500 z-10 object-cover border-4 border-white/20"
                                     />
 
-                                    {/* --- C. FLOATING BADGE (GLASS EFFECT) --- */}
-                                    {/* Badge 1: Kiri Atas */}
                                     <motion.div
                                         animate={{ y: [10, -10, 10] }}
                                         transition={{
@@ -468,7 +474,7 @@ export default function P3Page() {
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: false, amount: 0.2 }}
+                            viewport={{ once: true, amount: 0.2 }}
                             className="flex flex-col md:flex-row justify-center gap-8 mb-12"
                         >
                             {leaders.map((member, index) => (
@@ -571,12 +577,12 @@ export default function P3Page() {
                         </motion.div>
                     </div>
                     {/* --- PROGRAM UNGGULAN --- */}
-                    <div className="mb-24 overflow-hidden">
+                    <div id="program-kerja" className="mb-24 overflow-hidden">
                         {" "}
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: false, amount: 0.5 }}
+                            viewport={{ once: true, amount: 0.5 }}
                             variants={fadeInUp}
                             className="text-center mb-20"
                         >
@@ -757,7 +763,7 @@ export default function P3Page() {
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <a
-                                        href="https://wa.me/6282006325524"
+                                        href="https://wa.me/62882006325524"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"

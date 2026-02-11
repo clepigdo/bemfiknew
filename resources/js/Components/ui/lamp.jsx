@@ -1,9 +1,15 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React from "react";
+import {
+    motion,
+    useMotionTemplate,
+    useMotionValue,
+    useSpring,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Sparkles, Target } from "lucide-react";
+import { Sparkles, Target, CheckCircle2 } from "lucide-react";
 
+// --- 1. KOMPONEN UTAMA (MODIFIED) ---
 export function LampDemo() {
     return (
         <LampContainer>
@@ -11,6 +17,7 @@ export function LampDemo() {
             <motion.h1
                 initial={{ opacity: 0.5, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{
                     delay: 0.3,
                     duration: 0.8,
@@ -22,183 +29,173 @@ export function LampDemo() {
             </motion.h1>
 
             {/* --- Container Grid --- */}
-            {/* Added perspective here to ensure 3D depth works */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                style={{ perspective: "1000px" }}
                 className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-4 mb-20 relative z-50"
             >
-                {/* === KARTU VISI === */}
-                <Card3D className="bg-slate-900/40 border-white/10 hover:border-[#323EDD]/50 hover:shadow-[0_0_50px_rgba(50,62,221,0.2)]">
-                    {/* Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#323EDD]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                    {/* Floating Icon Background */}
-                    <div
-                        className="absolute top-6 right-6 p-4 opacity-10 group-hover:opacity-20 transition-all duration-500 rotate-12"
-                        style={{ transform: "translateZ(40px)" }}
-                    >
-                        <Sparkles className="w-24 h-24 text-[#323EDD]" />
+                {/* === KARTU VISI (BLUE THEME) === */}
+                <SpotlightCard color="blue" className="h-full">
+                    {/* Floating Icon Animation */}
+                    <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-20 transition-all duration-700 rotate-12 group-hover:rotate-45 group-hover:scale-110">
+                        <Sparkles className="w-32 h-32 text-[#323EDD]" />
                     </div>
 
                     {/* Header: Ikon & Judul */}
-                    <div
-                        className="relative z-10 flex items-center gap-5 mb-6"
-                        style={{ transform: "translateZ(50px)" }}
-                    >
-                        <div className="p-4 bg-[#323EDD]/20 text-[#323EDD] rounded-2xl border border-[#323EDD]/20 shadow-[0_0_20px_rgba(50,62,221,0.3)]">
+                    <div className="relative z-10 flex items-center gap-5 mb-8">
+                        <div className="p-4 bg-[#323EDD]/10 text-[#323EDD] rounded-2xl border border-[#323EDD]/20 shadow-[0_0_20px_rgba(50,62,221,0.2)] group-hover:bg-[#323EDD] group-hover:text-white transition-all duration-500">
                             <Sparkles size={32} />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-black text-white tracking-tight">
+                            <h3 className="text-4xl font-black text-white tracking-tight">
                                 VISI
                             </h3>
-                            <div className="h-1 w-12 bg-[#323EDD] rounded-full mt-1 shadow-[0_0_10px_#323EDD]"></div>
+                            {/* Garis Memanjang */}
+                            <div className="h-1.5 w-12 bg-[#323EDD] rounded-full mt-2 group-hover:w-full transition-all duration-700 shadow-[0_0_10px_#323EDD]"></div>
                         </div>
                     </div>
 
-                    {/* Konten */}
-                    <p
-                        className="relative z-10 text-slate-300 leading-loose text-lg text-justify font-light"
-                        style={{ transform: "translateZ(30px)" }}
-                    >
-                        "Mewujudkan BEM FIK sebagai organisasi mahasiswa
-                        proaktif dan kolaboratif yang berdampak positif dalam
-                        mendukung pengembangan diri mahasiswa Fakultas Ilmu
-                        Komputer dan pengabdian masyarakat berlandaskan
-                        sinergitas dengan mengedepankan loyalitas,
-                        profesionalitas kerja dan tanggung jawab."
+                    {/* Konten Text */}
+                    <p className="relative z-10 text-slate-300 text-lg leading-loose text-justify font-light group-hover:text-white transition-colors duration-300">
+                        "Mewujudkan BEM FIK sebagai organisasi mahasiswa{" "}
+                        <span className="text-[#323EDD] font-bold">
+                            proaktif
+                        </span>{" "}
+                        dan{" "}
+                        <span className="text-[#323EDD] font-bold">
+                            kolaboratif
+                        </span>{" "}
+                        yang berdampak positif dalam mendukung pengembangan diri
+                        mahasiswa Fakultas Ilmu Komputer dan pengabdian
+                        masyarakat berlandaskan sinergitas dengan mengedepankan
+                        loyalitas, profesionalitas kerja dan tanggung jawab."
                     </p>
-                </Card3D>
+                </SpotlightCard>
 
-                {/* === KARTU MISI === */}
-                <Card3D className="bg-slate-900/40 border-white/10 hover:border-[#EE99C2]/50 hover:shadow-[0_0_50px_rgba(238,153,194,0.2)]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#EE99C2]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                    <div
-                        className="absolute top-6 right-6 p-4 opacity-10 group-hover:opacity-20 transition-all duration-500 -rotate-12"
-                        style={{ transform: "translateZ(40px)" }}
-                    >
-                        <Target className="w-24 h-24 text-[#EE99C2]" />
+                {/* === KARTU MISI (PINK THEME) === */}
+                <SpotlightCard color="pink" className="h-full">
+                    {/* Floating Icon Animation */}
+                    <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-20 transition-all duration-700 -rotate-12 group-hover:-rotate-45 group-hover:scale-110">
+                        <Target className="w-32 h-32 text-[#EE99C2]" />
                     </div>
 
-                    <div
-                        className="relative z-10 flex items-center gap-5 mb-6"
-                        style={{ transform: "translateZ(50px)" }}
-                    >
-                        <div className="p-4 bg-[#EE99C2]/20 text-[#EE99C2] rounded-2xl border border-[#EE99C2]/20 shadow-[0_0_20px_rgba(238,153,194,0.3)]">
+                    {/* Header: Ikon & Judul */}
+                    <div className="relative z-10 flex items-center gap-5 mb-8">
+                        <div className="p-4 bg-[#EE99C2]/10 text-[#EE99C2] rounded-2xl border border-[#EE99C2]/20 shadow-[0_0_20px_rgba(238,153,194,0.2)] group-hover:bg-[#EE99C2] group-hover:text-white transition-all duration-500">
                             <Target size={32} />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-black text-white tracking-tight">
+                            <h3 className="text-4xl font-black text-white tracking-tight">
                                 MISI
                             </h3>
-                            <div className="h-1 w-12 bg-[#EE99C2] rounded-full mt-1 shadow-[0_0_10px_#EE99C2]"></div>
+                            {/* Garis Memanjang */}
+                            <div className="h-1.5 w-12 bg-[#EE99C2] rounded-full mt-2 group-hover:w-full transition-all duration-700 shadow-[0_0_10px_#EE99C2]"></div>
                         </div>
                     </div>
 
-                    <ul
-                        className="relative z-10 space-y-5 text-slate-300 text-justify font-light"
-                        style={{ transform: "translateZ(30px)" }}
-                    >
-                        <ListItem text="Membangun BEM FIK berdasarkan ketuhanan, kekeluargaan dan keharmonisan." />
-                        <ListItem text="Meningkatkan peran aktif Sumber Daya Manusia Internal Organisasi yang inovatif dan komunikatif." />
-                        <ListItem text="Menjalin hubungan baik dengan seluruh civitas akademika dan aktivis organisasi mahasiswa." />
-                        <ListItem text="Mengoptimalkan fungsi media digital sebagai sarana komunikasi untuk memperluas jaringan organisasi." />
-                        <ListItem text="Menjadi fasilitator bagi mahasiswa dalam mengembangkan kreativitas, minat dan bakat." />
+                    {/* Konten List Interaktif */}
+                    <ul className="relative z-10 space-y-4">
+                        <InteractiveList
+                            color="pink"
+                            text="Membangun BEM FIK berdasarkan ketuhanan, kekeluargaan dan keharmonisan."
+                        />
+                        <InteractiveList
+                            color="pink"
+                            text="Meningkatkan peran aktif Sumber Daya Manusia Internal Organisasi yang inovatif dan komunikatif."
+                        />
+                        <InteractiveList
+                            color="pink"
+                            text="Menjalin hubungan baik dengan seluruh civitas akademika dan aktivis organisasi mahasiswa."
+                        />
+                        <InteractiveList
+                            color="pink"
+                            text="Mengoptimalkan fungsi media digital sebagai sarana komunikasi untuk memperluas jaringan organisasi."
+                        />
+                        <InteractiveList
+                            color="pink"
+                            text="Menjadi fasilitator bagi mahasiswa dalam mengembangkan kreativitas, minat dan bakat."
+                        />
                     </ul>
-                </Card3D>
+                </SpotlightCard>
             </motion.div>
         </LampContainer>
     );
 }
 
-// --- KOMPONEN LOGIKA 3D TILT (ANIMASI UTAMA) ---
-const Card3D = ({ children, className }) => {
-    const ref = useRef(null);
+// --- 2. KOMPONEN SPOTLIGHT CARD (NEW) ---
+const SpotlightCard = ({ children, className = "", color = "blue" }) => {
+    const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
+    const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
+    function onMouseMove({ currentTarget, clientX, clientY }) {
+        const { left, top } = currentTarget.getBoundingClientRect();
+        mouseX.set(clientX - left);
+        mouseY.set(clientY - top);
+    }
 
-    const mouseXSpring = useSpring(x);
-    const mouseYSpring = useSpring(y);
-
-    const rotateX = useTransform(
-        mouseYSpring,
-        [-0.5, 0.5],
-        ["12deg", "-12deg"],
-    );
-    const rotateY = useTransform(
-        mouseXSpring,
-        [-0.5, 0.5],
-        ["-12deg", "12deg"],
-    );
-
-    const handleMouseMove = (e) => {
-        const rect = ref.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const xPct = mouseX / width - 0.5;
-        const yPct = mouseY / height - 0.5;
-        x.set(xPct);
-        y.set(yPct);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
+    const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
+    const style = { maskImage, WebkitMaskImage: maskImage };
 
     return (
-        <motion.div
-            ref={ref}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-                rotateY,
-                rotateX,
-                transformStyle: "preserve-3d",
-            }}
+        <div
+            onMouseMove={onMouseMove}
             className={cn(
-                // PERBAIKAN: rounded-[2.5rem] ada di sini agar shadow mengikuti bentuk
-                "group relative h-full w-full rounded-[2.5rem] transition-all duration-200 ease-out",
+                "relative group rounded-[2.5rem] border border-white/10 bg-slate-900/40 overflow-hidden",
                 className,
             )}
         >
-            {/* PERBAIKAN: Inner Container untuk memotong (clipping) sudut yang berlebih */}
-            {/* Kita pisahkan logic tilt (parent) dan logic rounded/overflow (child ini) */}
-            <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
-                {/* Border Cahaya */}
-                <div className="absolute inset-0 border border-white/5 group-hover:border-white/10 transition-colors duration-500 rounded-[2.5rem]"></div>
+            {/* 1. Efek Glow Mengikuti Mouse (Border Highlight) */}
+            <motion.div
+                className={`pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100 ${
+                    color === "pink" ? "bg-[#EE99C2]/40" : "bg-[#323EDD]/40"
+                }`}
+                style={style}
+            />
 
-                {/* Background Glass yang sebenarnya */}
-                <div className="absolute inset-0 backdrop-blur-xl"></div>
-            </div>
+            {/* 2. Konten Utama */}
+            <div className="relative h-full p-8 md:p-10 z-10">{children}</div>
 
-            {/* Content Container - z-index tinggi agar bisa pop-out secara 3D */}
+            {/* 3. Dekorasi Background Statis (Gradient Halus) */}
             <div
-                className="relative h-full w-full p-8"
-                style={{ transformStyle: "preserve-3d" }}
-            >
-                {children}
-            </div>
-        </motion.div>
+                className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 ${
+                    color === "pink"
+                        ? "bg-gradient-to-br from-[#EE99C2] via-transparent to-transparent"
+                        : "bg-gradient-to-br from-[#323EDD] via-transparent to-transparent"
+                }`}
+            ></div>
+        </div>
     );
 };
 
-// --- LIST ITEM ---
-const ListItem = ({ text }) => (
-    <li className="flex items-start gap-3">
-        <span className="mt-1.5 w-2 h-2 rounded-full bg-[#FBDF07] shrink-0 shadow-[0_0_10px_#FBDF07]" />
-        <span className="text-base">{text}</span>
-    </li>
-);
+// --- 3. KOMPONEN LIST INTERAKTIF (NEW) ---
+const InteractiveList = ({ text, color }) => {
+    return (
+        <motion.li
+            initial={{ x: -10, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ x: 5 }}
+            className="flex gap-4 items-start group/item cursor-default"
+        >
+            <div
+                className={`mt-1 p-1 rounded-full border border-white/10 bg-white/5 group-hover/item:scale-110 transition-all duration-300 ${
+                    color === "pink"
+                        ? "group-hover/item:bg-[#EE99C2] group-hover/item:text-white text-[#EE99C2]"
+                        : "text-[#323EDD]"
+                }`}
+            >
+                <CheckCircle2 size={14} />
+            </div>
+            <p className="flex-1 text-slate-300 group-hover/item:text-white transition-colors duration-300 font-light leading-relaxed">
+                {text}
+            </p>
+        </motion.li>
+    );
+};
 
-// --- LAMP CONTAINER (BACKGROUND & LIGHTS) ---
+// --- 4. LAMP CONTAINER (TIDAK DIUBAH SAMA SEKALI) ---
 export const LampContainer = ({ children, className }) => {
     return (
         <div

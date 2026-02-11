@@ -282,8 +282,18 @@ export default function MedkrefPage() {
                                     mahasiswa.
                                 </p>
 
-                                <button className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                    Lihat Galeri Karya
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        document
+                                            .getElementById("lihat-proker")
+                                            ?.scrollIntoView({
+                                                behavior: "smooth",
+                                            });
+                                    }}
+                                    className="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                                >
+                                    Lihat Proker
                                     <ArrowRight
                                         className="group-hover:translate-x-1 transition-transform"
                                         size={20}
@@ -576,7 +586,7 @@ export default function MedkrefPage() {
                     </div>
 
                     {/* --- PROGRAM UNGGULAN (ANIMATED) --- */}
-                    <div className="mb-24 overflow-hidden">
+                    <div id="lihat-proker" className="mb-24 overflow-hidden">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
@@ -756,17 +766,18 @@ export default function MedkrefPage() {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <button className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
-                                        Gabung Tim Kreatif
+                                    <a
+                                        href="https://wa.me/62882006325524"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"
+                                    >
+                                        Hubungi Kami
                                         <ArrowRight
                                             className="group-hover:translate-x-1 transition-transform"
                                             size={20}
                                         />
-                                    </button>
-
-                                    <button className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
-                                        Lihat Portfolio
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
 
